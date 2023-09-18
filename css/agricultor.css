@@ -1,0 +1,58 @@
+
+      
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .container {
+            width: 80%;
+            padding: 20px;
+          
+            border-radius: 10px;
+        
+        }
+        
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: none;
+            border-radius: 19px;
+            background-color: #f2f2f2; 
+            color: black; 
+        }
+        
+        
+      input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 30px; 
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold; 
+    display: block; 
+    margin: 0 auto; 
+    width: fit-content; 
+}
+
+      
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        
+        h2, h3, h4 {
+            text-align: center;
+        }
+        
+        .destaque-verde {
+            color: green;
+        }
+   
