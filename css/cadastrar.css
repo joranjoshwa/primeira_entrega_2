@@ -1,0 +1,31 @@
+main .card{
+    transform: translateY(-50%);
+    margin: auto;
+    aspect-ratio: 1/1;
+    height: 40%;
+    margin-top: 50vh;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    justify-content: space-evenly;
+    background-color: white;
+}
+
+main div a{
+    text-decoration: none;
+    color: var(--cor_destaque);
+    font-size: 1.5rem;
+    display: block;
+    text-align: center;
+    background: none;
+    border: none;
+    padding: .3rem;
+    border-radius: 10px;
+    border: 1px solid var(--cor_destaque);
+}
+
+main div a[name="agro"]{
+    background-color: var(--cor_destaque);
+    color:white;
+}
