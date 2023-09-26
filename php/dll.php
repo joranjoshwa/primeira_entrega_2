@@ -1,0 +1,4 @@
+<?php
+    $password = ""
+    $user = "root"
+?>
