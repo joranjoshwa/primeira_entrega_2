@@ -1,3 +1,7 @@
+.card{
+    max-height: 100vh;
+}
+
 .doc{
     background-color: #ddd;
     width: fit-content;
@@ -14,6 +18,7 @@
     flex-direction: column;
     align-items: center;
     width: fit-content;
+    margin-bottom: 1.5rem;
 }
 
 section{
