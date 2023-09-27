@@ -1,6 +1,16 @@
 <?php
     extract($_POST);
 
+    switch ($tela) {
+        case 'login':
+            
+            break;
+        
+        default:
+            
+            break;
+    }
+
     if (!isset($stylesheet)){
         $stylesheet = "entrar";
     }
@@ -9,7 +19,7 @@
         $page = "login/entrar";
     }
 
-    
+
 ?>
 
 <!DOCTYPE html>
