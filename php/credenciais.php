@@ -1,6 +1,6 @@
 <?php
-    $password = ""
-    $user = "root"
-    $host = "localhost"
-    $bd = "agrofam"
+    $password = "";
+    $user = "root";
+    $host = "localhost";
+    $bd = "agrofam";
 ?>
