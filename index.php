@@ -1,11 +1,14 @@
 <?php
+    include 'dll.php'
     extract($_POST);
 
     switch ($tela) {
         case 'login':
-            
+            login($user, $pass);
             break;
-        
+        case 'registrar':
+            registrar();
+            break;
         default:
             
             break;

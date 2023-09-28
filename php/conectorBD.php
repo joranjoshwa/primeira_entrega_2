@@ -3,6 +3,7 @@
 function executarQuery($consulta, $retorno = 0, $multi = 0){
 
     include "credenciais.php";
+    
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
     $banco = new mysqli($host, $user, $password, $bd);
 
