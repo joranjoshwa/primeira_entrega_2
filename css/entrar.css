@@ -1,5 +1,9 @@
 .overflow{
     width: 50%;
-    
-
+}
+a{
+    text-decoration: none;
+    color: var(--cor_letra);
+    font-size: .8rem;
+    width: 50%;
 }

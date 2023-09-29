@@ -1,32 +1,37 @@
+
 <!DOCTYPE html>
-<html>
-<head> <link rel="stylesheet" href="../../css/instituição.css">
-    <title>Cadastro Institucional</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-   
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/main.css?version=1">
+    <link rel="stylesheet" href="../../css/cadastrarAgro.css">
+    <title>AgroFam+</title>
 </head>
 <body>
-    
-  <div class="container">
-        <h2>Agrofam+</h2>
-        <h3>Ótimo! Agora nos ajude <br> com alguns <span class="destaque-verde">dados</span> </h3>
-      <form action="index.php" method="post">
-            <input type="text" name="nome" placeholder="Nome da Instituição*" ><br>
-            <input type="password" name="senha" placeholder="Crie uma senha*" 
-                   ><br>
-            <input type="text" name="cnpj" placeholder="CNPJ"><br>
-            <input type="text" name="localizacao" placeholder="Localização*"><br>
-          
-        
-        
-        <h4><span class="destaque-verde">Atenção!</span> Esta aba de cadastro é exclusiva para instituição. Não realize cadastros em nome de instituições sem autorização.</h4>
-            
-        
-        
-        <input type="submit" id="BtnConc" value="Concluir">
-        </form>
-   
-  
-  </div>
+    <main>
+        <div class="card">
+            <h1>Instituição</h1>
+            <h2>blalalalal</h2>
+            <form action="index.php" method="post">
+                <div class="overflow">
+                    <input type="text" name="nome" placeholder="Nome da Instituição" required>
+                    <input type="text" name="senha" placeholder="Senha" required>
+                    <input type="text" name="cnpj" placeholder="CNPJ" required>
+                    <input type="text" name="email" placeholder="E-mail" required>
+                    <select name="localidade">
+                        <option disabled selected>escolha uma opção</option>
+                        <option value="Eunápolis">Eunápolis</option>
+                        <option value="Salto da Divisa">Salto da Divisa</option>
+                        <option value="Porto Seguro">Porto Seguro</option>
+                    </select>
+                    <!--<input type="text" name="localidade" placeholder="Localidade" required>-->
+                    <p><span>atenção</span>, Esta aba de cadastro é exclusiva para instituição. Não realize
+                        cadastros em nome de instituições sem autorização.</p>
+                </div>
+                <input type="submit" value="entrar">
+            </form>
+        </div>
+    </main>
 </body>
 </html>
