@@ -1,25 +1,32 @@
 <?php
     include './php/dll.php';
     $tela = 'login';
-    extract($_POST);
 
-    switch ($tela) {
-        case 'login':
-            $page = 'login/entrar';
-            $stylesheet = 'entrar';
-
-            if (isset($dados)){
-                login($user, $pass);
-            }
-            break;
-
-        case 'registrar':
-            registrar();
-            break;
-        default:
+    if (isset($_POST['tela'])){
+        switch ($_POST['tela']) {
+            case 'login':
+    
+                if (isset($_POST)){
+                    login($_POST);
+                }
+                break;
+    
+            case 'registrar':
+                if (isset($_POST)){
+                    registrar($_POST);
+                    $page = 'login/entrar';
+                    $stylesheet = 'entrar';
+                }
+                break;
             
-            break;
+            default:
+                break;
+        }
+    }else{
+        $page = 'login/entrar';
+        $stylesheet = 'entrar';
     }
+    
 
 ?>
 

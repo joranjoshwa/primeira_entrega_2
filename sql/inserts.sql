@@ -1,0 +1,2 @@
+INSERT INTO `localidades` (`id`, `nome`) VALUES (NULL, 'Eunápolis');
+INSERT INTO `instituicoes` (`id`, `nome`, `CNPJ`, `email`, `senha`, `localidades_id`) VALUES (NULL, 'IFBA', '23423434', 'pedro2323@gmail.com', 'wewewe', '1');

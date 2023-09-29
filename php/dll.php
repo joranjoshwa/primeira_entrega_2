@@ -1,12 +1,28 @@
 <?php
+    include 'conectorBD.php';
 
-    function login($user, $pass)
+    function login($dados)
     {
         return;
     }
 
-    function registrar($tipo, $dados){
-
+    function registrar($dados){
+        extract($dados);
+        if ($tipo == 'insti'){
+            if (!executarQuery('SELECT * from agricultores', $retorno=1)){
+                excutarQuery("INSERT INTO `instituicoes` (`id`, `nome`, `CNPJ`, `email`, `senha`, `localidades_id`) 
+                VALUES (
+                    NULL, 
+                    $nome, 
+                    $cnpj, 
+                    $email, 
+                    $senha, 
+                    '1'
+                );",
+            );
+            }
+            
+        }
     }
 
 ?>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,8 +12,11 @@
     include "conectorBD.php";
 
 
-    print_r(executarQuery("describe agricultores", $retorno=1, $multi = 0));
-
+    $var = executarQuery('SELECT * from agricultores', $retorno=1);
+    if(!$var){
+        echo 'pedro';
+    }
+    print_r ($var);
 
     ?>
 </pre>
