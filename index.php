@@ -74,7 +74,10 @@
     <title>AgroFam+</title>
 </head>
 <?php
-    empty($_POST);
+    if ($_SESSION['erro'][0]){
+        echo '<h3 class="erroMSG">'.$_SESSION['erro'][1].'</h3>';
+        $_SESSION['erro'][0] = false;
+    }
     include "./pages/".$page.".html";
 ?>
 </html>

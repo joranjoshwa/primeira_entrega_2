@@ -110,3 +110,38 @@ h2{
     margin: 1rem;
     text-align: center;
 }
+
+nav{
+    height: 2.5rem;
+    position: absolute;
+    display: block;
+    top:0;
+    text-align: center;
+    background-color: white;
+    box-shadow: 0px .1rem 0px rgb(154, 154, 154);
+    width: 100%;
+}
+
+nav span, nav div{
+    height: 100%;
+    position: absolute;
+    width: 50%;
+    display: flex;
+    align-items: center;
+
+}
+
+nav span{
+    justify-content: start;
+    left: 5%;
+}
+
+nav a{
+    display: block;
+    justify-content: end;
+}
+
+nav div{
+    right: 5%;
+    justify-content: end;
+}

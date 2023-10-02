@@ -1,0 +1,47 @@
+.card{
+    align-items: center;
+    justify-content: center;
+}
+
+.opcao{
+    margin: auto;
+    background-image: linear-gradient(to right, rgb(126, 81, 157), rgba(127, 81, 157, 0.25));
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    width: 30%;
+    color: rgb(255, 255, 255);
+    position: relative;
+    pointer-events: all;
+    cursor: pointer;
+}
+
+.opcao p{
+    position: absolute;
+    z-index: 1;
+    padding: 1rem;
+    text-transform: capitalize;
+}
+
+.img{
+    overflow: hidden;
+    width: 40%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    right: 0;
+}
+.img img{
+    position: inherit;
+    right: 0;
+    overflow: hidden;
+    height: 90%;
+    padding: .1rem;
+    object-fit: scale-down;
+}
+
+a{
+    display: block;
+    width: 100%;
+}
