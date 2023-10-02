@@ -3,39 +3,60 @@
     $_SESSION['erro'] = [false, '']; 
     include './php/dll.php';
 
-    if (isset($_POST['tela'])){
-        switch ($_POST['tela']) {
+    if (isset($_POST['tela']))
+    {
+        switch ($_POST['tela']) 
+        {
+            
             case 'login':
-    
-                if (isset($_POST)){
-                    login($_POST);
+                if(!login($_POST))  
+                {
+                    $_SESSION['erro'][1] = "Algo deu errado no seu login";
+                    $_SESSION['erro'][0] = true; 
+
+                    $page = 'login/entrar';
+                    $stylesheet = 'entrar';
+                }
+                else
+                {
+                    if (strlen($_POST['id'])==11)
+                    {
+                        $tipo = 'agricultor';
+                    }
+                    else
+                    {
+                        $tipo = 'instituicao';
+                    }
+                    $page = "home/$tipo";
+                    $stylesheet = 'home'; 
                 }
                 break;
     
             case 'registrar':
-                if (isset($_POST)){
-                    if(!registrar($_POST)){
-                        $_SESSION['erro'][1] = "Algo deu errado no seu cadastro";
-                        $_SESSION['erro'][0] = true;
-                        if ($_POST['tipo'] == 'insti')
-                        {
-                            $local = 'cadastrarInsti';
-                        } 
-                        else 
-                        {
-                            $local = 'cadastrarAgro';
-                        }
-                        header("Location: pages/cadastro/$local.php");
+                if(!registrar($_POST))
+                {
+                    $_SESSION['erro'][1] = "Algo deu errado no seu cadastro";
+                    $_SESSION['erro'][0] = true;
+                    if ($_POST['tipo'] == 'insti')
+                    {
+                        $local = 'cadastrarInsti';
+                    } 
+                    else 
+                    {
+                        $local = 'cadastrarAgro';
                     }
-                    $page = 'login/entrar';
-                    $stylesheet = 'entrar';
+                    header("Location: pages/cadastro/$local.php");
                 }
+                $page = 'login/entrar';
+                $stylesheet = 'entrar';
                 break;
             
             default:
                 break;
         }
-    }else{
+    }
+    else
+    {
         $page = 'login/entrar';
         $stylesheet = 'entrar';
     }

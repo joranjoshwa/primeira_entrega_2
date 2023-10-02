@@ -17,6 +17,7 @@
                 session_start();
                 if ($_SESSION['erro'][0]){
                     echo '<h3 class="erroMSG">'.$_SESSION['erro'][1].'</h3>';
+                    $_SESSION['erro'][0] = false;
                 }
             ?>
             <form action="../../index.php" method="post">

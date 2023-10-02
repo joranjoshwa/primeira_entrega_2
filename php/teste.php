@@ -9,11 +9,10 @@
 <pre>
     <?php
 
-    //include "conectorBD.php";
-    include "util.php";
-
-    
-
+    include "conectorBD.php";
+    $id = 31123123;
+    $queryResult=executarQuery("SELECT senha from agricultores WHERE CPF = '$id'", $retorno=true)[0]['senha'];
+    print_r($queryResult);
     ?>
 </pre>
 </body>

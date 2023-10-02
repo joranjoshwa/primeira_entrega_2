@@ -2,7 +2,19 @@
 
     function login($dados)
     {
-        return;
+        include 'conectorBD.php';
+        extract($dados);
+        if (strlen($id)==11)
+        {
+            if(!$queryResult=executarQuery("SELECT senha from agricultores WHERE CPF = '$id'", $retorno=true)[0]['senha']) return false;
+            if($queryResult == $senha) return true;
+
+        }else if (strlen($id)==14)
+        {
+            if(!$queryResult=executarQuery("SELECT senha from instituicoes WHERE CNPJ = '$id'", $retorno=true)[0]['senha']) return false;
+            if($queryResult == $senha) return true;
+        }
+        return false;
     }
 
     function registrar($dados){
@@ -26,12 +38,7 @@
                 );");
 
                 return true;
-            }
-            else
-            {
-                return false;
-            }
-            
+            } 
         }
         else if ($tipo == 'agro')
         {
@@ -50,11 +57,9 @@
 
                 return true;
             }
-            else
-            {
-                return false;
-            }
         }
+
+        return false;
     }
 
 ?>
