@@ -1,15 +1,16 @@
 <?php
-    include 'conectorBD.php';
 
-    function converterChave($chave, $tabela, $modo=1)
+    function converterChave($chave, $tabela, $getValor=true)
     {
-        if ($modo)
+        include 'conectorBD.php';
+        
+        if ($getValor)
         {
-            $valorChave = executarQuery("SELECT * FROM $tabela WHERE id == $chave", $retorno=1);
+            return executarQuery("SELECT * FROM $tabela WHERE id = '$chave'", $retorno=1)[0];
         }
         else
         {
-            $idChave = executarQuery("SELECT id from $tabela WHERE id == $chave;", $retorno=1);
+            return executarQuery("SELECT id from $tabela WHERE nome = '$chave';", $retorno=1)[0]['id'];
         }
     }
 ?>

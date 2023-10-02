@@ -11,7 +11,7 @@ function executarQuery($consulta, $retorno = 0, $multi = 0){
         $banco->multi_query($consulta);
         if ($retorno){
             $dados =[];
-            do{
+            do{ 
                 if($result = $banco->store_result()){
                     while($linha = $result->fetch_row()){
                         array_push($dados, $linha[0]);

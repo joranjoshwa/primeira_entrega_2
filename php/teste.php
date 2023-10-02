@@ -9,14 +9,10 @@
 <pre>
     <?php
 
-    include "conectorBD.php";
+    //include "conectorBD.php";
+    include "util.php";
 
-
-    $var = executarQuery('SELECT * from agricultores', $retorno=1);
-    if(!$var){
-        echo 'pedro';
-    }
-    print_r ($var);
+    
 
     ?>
 </pre>

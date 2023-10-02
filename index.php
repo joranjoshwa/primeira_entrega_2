@@ -1,6 +1,7 @@
 <?php
+    session_start();
+    $_SESSION['erro'] = [false, '']; 
     include './php/dll.php';
-    $tela = 'login';
 
     if (isset($_POST['tela'])){
         switch ($_POST['tela']) {
@@ -13,7 +14,19 @@
     
             case 'registrar':
                 if (isset($_POST)){
-                    registrar($_POST);
+                    if(!registrar($_POST)){
+                        $_SESSION['erro'][1] = "Algo deu errado no seu cadastro";
+                        $_SESSION['erro'][0] = true;
+                        if ($_POST['tipo'] == 'insti')
+                        {
+                            $local = 'cadastrarInsti';
+                        } 
+                        else 
+                        {
+                            $local = 'cadastrarAgro';
+                        }
+                        header("Location: pages/cadastro/$local.php");
+                    }
                     $page = 'login/entrar';
                     $stylesheet = 'entrar';
                 }
@@ -27,7 +40,6 @@
         $stylesheet = 'entrar';
     }
     
-
 ?>
 
 <!DOCTYPE html>
@@ -41,6 +53,7 @@
     <title>AgroFam+</title>
 </head>
 <?php
+    empty($_POST);
     include "./pages/".$page.".html";
 ?>
 </html>
