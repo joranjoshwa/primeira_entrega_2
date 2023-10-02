@@ -5,7 +5,7 @@
 }
 
 *::after,
-*::before,
+*::before, 
 *{
     box-sizing: border-box;
     margin: 0%;
@@ -144,4 +144,8 @@ nav a{
 nav div{
     right: 5%;
     justify-content: end;
+    background-color: rgb(49, 49, 49);
+    aspect-ratio: 1/1;
+    width: 4rem;
+    border-radius: 50px;
 }
