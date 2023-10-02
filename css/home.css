@@ -45,3 +45,11 @@ a{
     display: block;
     width: 100%;
 }
+
+a[href="./pesqOfertas.html"] .opcao{
+    background-image: linear-gradient(to right, var(--cor_destaque), rgba(50, 205, 50, 0.25));
+}
+
+a[href="./pesqOfertas.html"] .opcao img{
+    transform: rotateY(180deg);
+}
