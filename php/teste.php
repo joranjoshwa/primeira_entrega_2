@@ -10,9 +10,12 @@
     <?php
 
     include "conectorBD.php";
-    $id = 31123123;
-    $queryResult=executarQuery("SELECT senha from agricultores WHERE CPF = '$id'", $retorno=true)[0]['senha'];
+    $id = 12345678912345;
+    $queryResult=executarQuery("SELECT senha from instituicoes WHERE CNPJ = '$id'", $retorno=true)[0]['senha'];
     print_r($queryResult);
+    if ($queryResult  == '123'){
+        echo 'pedro';
+    }
     ?>
 </pre>
 </body>
