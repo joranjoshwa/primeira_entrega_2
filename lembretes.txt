@@ -2,3 +2,4 @@
 -no momento a parte de mandar email no cadastro da instituição irá ficar suspensa
 -talvez terá uma máscara nos inputs
 -verificar como arquivos privados são gravados em sites de empresas grandes para explicar
+-colocar verificação de sessão em todas as páginas não por no index.php

@@ -3,7 +3,9 @@
     function login($dados)
     {
         include 'conectorBD.php';
+        session_start();
         extract($dados);
+
         if (strlen($id)==11)
         {
             if(!$queryResult=executarQuery("SELECT senha from agricultores WHERE CPF = '$id'", $retorno=true)[0]['senha']) return false;
@@ -14,7 +16,12 @@
         if (strlen($id)==14)
         {
             if(!$queryResult=executarQuery("SELECT senha from instituicoes WHERE CNPJ = '$id'", $retorno=true)[0]['senha']) return false;
-            if($queryResult == "".$senha) return true;
+            
+            if($queryResult == "".$senha) 
+            {
+                $_SESSION['user'] = [true, $id]; 
+                return true;
+            }
         }
         return false;
     }
@@ -27,7 +34,7 @@
         $localidadeFK = converterChave($localidade, 'localidades', $getValor=false);
         if ($tipo == 'insti')
         {
-            if (!executarQuery("SELECT CNPJ from instituicoes WHERE CNPJ = $cnpj", $retorno=1))
+            if (!executarQuery("SELECT CNPJ from instituicoes WHERE CNPJ = '$cnpj'", $retorno=1))
             {
                 executarQuery("INSERT INTO `instituicoes` (`id`, `nome`, `CNPJ`, `email`, `senha`, `localidades_id`) 
                 VALUES (
@@ -62,6 +69,11 @@
         }
 
         return false;
+    }
+
+    function atualizar()
+    {
+
     }
 
 ?>

@@ -50,7 +50,14 @@
                 $page = 'login/entrar';
                 $stylesheet = 'entrar';
                 break;
-            
+
+            case 'atualizar':
+                if ($tipo == 'agro')
+                {
+                    
+                }
+                break;
+
             default:
                 break;
         }
