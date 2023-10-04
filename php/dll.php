@@ -73,24 +73,47 @@
 
     function atualizar($dados)
     {
-        extract($dados);
+        include 'util.php';
         session_start();
-        include 'conectorBD.php';
-
+        
         if ($tipo == 'agro')
         {
-            executarQuery("DELETE FROM `agricultores` WHERE `agricultores`.`id` = ".$_SESSION['user'][1]);
-            $localidadeFK = converterChave($localidade, 'localidades', $getValor=false);
-            executarQuery("INSERT INTO `agricultores` (`id`, `nome`, `CAF`, `CPF`, `senha`, `telefone`, `email`, `localidades_id`) 
-                VALUES (
-                    NULL, 
-                    '$nome', 
-                    '$caf', 
-                    '$cpf', 
-                    '$senha', 
-                    '$telefone', 
-                    '$email', 
-                    '$localidadeFK');");
+            $queryResult = executarQuery("SELECT nome, CPF, CAF, senha, telefone, email, localidades_id FROM agricultores WHERE id = ".$_SESSION['user'][1], $retorno=true)[0];
+            foreach ($queryResult as $coluna => $valor) 
+            {   
+                $col = $coluna;
+                if ($coluna == 'localidades_id')
+                {
+                    $localidadeFK = converterChave($valor, 'agricultor', $getValor=false);
+                    $col = 'localidades';//coverter chave estrangeira
+                } 
+                
+                if ($coluna == 'CAF' || $coluna == 'CPF') $col = strtolower($coluna);
+
+                if ($valor != $dados[$col])
+                {
+                    $dados[$col] = $queryResult[$coluna];
+                }
+            }
+
+            extract($dados);
+            executarQuery("UPDATE `agricultores` 
+            SET 
+            `nome` = '$nome', 
+            `CPF` = '$cpf',
+            `CAF` = '$caf',
+            `senha` = '$senha',
+            `telefone` = '$telefone',
+            `email` = '$email',
+            `localidades_id` = '$localidade'
+            WHERE `agricultores`.`id` = ".$_SESSION['user'][1]);
+        }
+        else
+        {
+            $queryResult = executarQuery("SELECT nome, CNPJ, email, senha, localidades_id FROM instituicoes WHERE id = ".$_SESSION['user'][1])[0];
+            foreach ($queryResult as $chave => $valor) {
+                # code...
+            }
         }
     }
 
