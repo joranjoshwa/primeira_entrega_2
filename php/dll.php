@@ -71,9 +71,27 @@
         return false;
     }
 
-    function atualizar()
+    function atualizar($dados)
     {
+        extract($dados);
+        session_start();
+        include 'conectorBD.php';
 
+        if ($tipo == 'agro')
+        {
+            executarQuery("DELETE FROM `agricultores` WHERE `agricultores`.`id` = ".$_SESSION['user'][1]);
+            $localidadeFK = converterChave($localidade, 'localidades', $getValor=false);
+            executarQuery("INSERT INTO `agricultores` (`id`, `nome`, `CAF`, `CPF`, `senha`, `telefone`, `email`, `localidades_id`) 
+                VALUES (
+                    NULL, 
+                    '$nome', 
+                    '$caf', 
+                    '$cpf', 
+                    '$senha', 
+                    '$telefone', 
+                    '$email', 
+                    '$localidadeFK');");
+        }
     }
 
 ?>

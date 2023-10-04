@@ -174,8 +174,7 @@ CREATE TABLE IF NOT EXISTS `agrofam`.`arquivos` (
   CONSTRAINT `fk_arquivos_agricultores1`
     FOREIGN KEY (`agricultores_id`)
     REFERENCES `agrofam`.`agricultores` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
