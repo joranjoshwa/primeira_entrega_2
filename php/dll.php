@@ -9,7 +9,11 @@
         if (strlen($id)==11)
         {
             if(!$queryResult=executarQuery("SELECT senha from agricultores WHERE CPF = '$id'", $retorno=true)[0]['senha']) return false;
-            if($queryResult == "".$senha) return true;
+            if($queryResult == "".$senha)
+            {
+                $_SESSION['user'] = [true, $id]; 
+                return true;
+            }
 
         }
         

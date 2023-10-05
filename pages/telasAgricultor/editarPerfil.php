@@ -1,4 +1,7 @@
 <?php
+    include '../../php/conectorBD.php';
+    session_start();
+    $dados = executarQuery('SELECT `nome`, `CAF`, `CPF`, `senha`, `telefone`, `email`, `localidades_id` FROM agricultores WHERE id ='.$_SESSION['user'][1]);
     
 ?>
 
