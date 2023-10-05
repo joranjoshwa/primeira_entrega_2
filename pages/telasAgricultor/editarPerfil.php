@@ -1,8 +1,14 @@
 <?php
-    include '../../php/conectorBD.php';
     session_start();
-    $dados = executarQuery('SELECT `nome`, `CAF`, `CPF`, `senha`, `telefone`, `email`, `localidades_id` FROM agricultores WHERE id ='.$_SESSION['user'][1]);
+
+    include '../../php/conectorBD.php';
+    $dados = executarQuery('SELECT `nome`, `CAF`, `CPF`, `senha`, `telefone`, `email`, `localidades_id` FROM agricultores WHERE CPF ='.$_SESSION['user'][1]);
+    print_r($dados);
+    include '../../php/util.php';
+    $dados['localidade'] = converterChave("SELECT nome FROM localidades WHERE id =".$dados['localidades_id']);
     
+    unset($dados['localidades_id']);
+    extract($dados);
 ?>
 
 <!DOCTYPE html>
@@ -18,14 +24,25 @@
         <div class="card">
             <h1>Atualize seu cadastro</h1>
             <form action="../../index.php" method="post">
-                <input type="text" name="nome" placeholder="Nome" required>
-                <input type="password" name="senha" placeholder="Senha" required>
+                <input type="text" name="nome" placeholder="Nome" value="<?php echo $nome?>" required>
+                <input type="text" name="senha" placeholder="Senha" value="<?php echo $senha?>" required>
                 <input type="number" name="cpf" placeholder="CPF" required>
                 <select name="localidade" required>
-                    <option disabled selected>Escolha uma opção</option>
-                    <option value="Eunápolis">Eunápolis</option>
-                    <option value="Salto da Divisa">Salto da Divisa</option>
-                    <option value="Porto Seguro">Porto Seguro</option>
+                    <option disabled>Escolha uma opção</option>
+                    <?php
+                        $opcoes = ['Eunápolis', 'Salto da Divisa', 'Porto Seguro'];
+                        foreach ($opcoes as $indice => $valor) 
+                        {
+                            if ($valor == $localidade)
+                            {
+                                echo "<option value='$localidade' selected>$localidade</option>";
+                            }
+                            else
+                            {
+                                echo "<option value='$localidade'>$localidade</option>";
+                            }
+                        }
+                    ?>
                 </select>
                 <input type="number" name="caf" placeholder="CAF" required>
                 <input type="number" name="telefone" placeholder="Telefone" required>
