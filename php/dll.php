@@ -78,26 +78,51 @@
         
         if ($tipo == 'agro')
         {
-            $queryResult = executarQuery("SELECT nome, CPF, CAF, senha, telefone, email, localidades_id FROM agricultores WHERE id = ".$_SESSION['user'][1], $retorno=true)[0];
-            foreach ($queryResult as $coluna => $valor) 
-            {   
-                $col = $coluna;
-                if ($coluna == 'localidades_id')
-                {
-                    $localidadeFK = converterChave($valor, 'agricultor', $getValor=false);
-                    $col = 'localidades';//coverter chave estrangeira
-                } 
-                
-                if ($coluna == 'CAF' || $coluna == 'CPF') $col = strtolower($coluna);
+           $tabela = 'agricultores';
+           $selectSQL = "SELECT nome, CPF, CAF, senha, telefone, email, localidades_id FROM agricultores WHERE id = ".$_SESSION['user'][1];
+        }
+        else
+        {
+            $tabela = 'instituicoes';
+            $selectSQL = 'SELECT `nome`, `CNPJ`, `email`, `senha`, `localidades_id` FROM instituicoes WHERE id = '.$_SESSION['user'][1];
+        }
 
-                if ($valor != $dados[$col])
+        $queryResult = executarQuery($selectSQL, $retorno=true)[0];
+        foreach ($queryResult as $coluna => $valor) 
+        {   
+            $col = $coluna;
+            if ($coluna == 'localidades_id')
+            {
+                $localidadeFK = converterChave($valor, $tabela, $getValor=false);
+                $col = 'localidade';
+            }
+                
+            if ($tipo == 'agro')
+            {
+                if ($coluna == 'CAF' || $coluna == 'CPF') $col = strtolower($coluna);
+            }
+            else
+            {
+                if ($coluna == 'CNPJ') $col = strtolower($coluna);
+            }
+
+            if ($valor != $dados[$col])
+            {
+                if ($col == 'localidade' && $localidadeFK != $valor)
+                {
+                    $dados[$col] = $localidadeFK;
+                }
+                else
                 {
                     $dados[$col] = $queryResult[$coluna];
                 }
             }
+        }
 
-            extract($dados);
-            executarQuery("UPDATE `agricultores` 
+        extract($dados);
+        if ($tipo == 'agro')
+        {
+            $updateSQL = "UPDATE `$tabela` 
             SET 
             `nome` = '$nome', 
             `CPF` = '$cpf',
@@ -106,15 +131,21 @@
             `telefone` = '$telefone',
             `email` = '$email',
             `localidades_id` = '$localidade'
-            WHERE `agricultores`.`id` = ".$_SESSION['user'][1]);
+            WHERE `$tabela`.`id` = ".$_SESSION['user'][1];
         }
         else
         {
-            $queryResult = executarQuery("SELECT nome, CNPJ, email, senha, localidades_id FROM instituicoes WHERE id = ".$_SESSION['user'][1])[0];
-            foreach ($queryResult as $chave => $valor) {
-                # code...
-            }
+            $updateSQL = "UPDATE `$tabela` 
+            SET 
+            `nome` = '$nome', 
+            `CNPJ` = '$cnpj',
+            `senha` = '$senha',
+            `email` = '$email',
+            `localidades_id` = '$localidade'
+            WHERE `$tabela`.`id` = ".$_SESSION['user'][1];
         }
+
+        executarQuery($updateSQL);
     }
 
 ?>
