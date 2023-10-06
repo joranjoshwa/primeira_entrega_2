@@ -8,10 +8,11 @@
 
         if (strlen($id)==11)
         {
-            if(!$queryResult=executarQuery("SELECT senha from agricultores WHERE CPF = '$id'", $retorno=true)[0]['senha']) return false;
+            if(!$queryResult=executarQuery("SELECT senha FROM agricultores WHERE CPF = '$id'", $retorno=true)[0]['senha']) return false;
             if($queryResult == "".$senha)
             {
-                $_SESSION['user'] = [true, $id]; 
+                $chave = executarQuery("SELECT id FROM agricultores WHERE CPF = $id;", $retorno=true)[0]['id'];//<-isso
+                $_SESSION['user'] = [true, $chave]; 
                 return true;
             }
 
@@ -23,7 +24,8 @@
             
             if($queryResult == "".$senha) 
             {
-                $_SESSION['user'] = [true, $id]; 
+                $chave = executarQuery("SELECT id FROM agricultores WHERE CPF = $id;", $retorno=true);//<-isso
+                $_SESSION['user'] = [true, $chave]; 
                 return true;
             }
         }
@@ -82,16 +84,11 @@
         if ($dados['tipo'] == 'agro')
         {
            $tabela = 'agricultores';
-           $selectSQL = "SELECT id FROM agricultores WHERE CPF = '".$_SESSION['user'][1]."';";
         }
         else
         {
             $tabela = 'instituicoes';
-            $selectSQL = 'SELECT id FROM instituicoes WHERE CNPJ = "'.$_SESSION['user'][1].'"';
         }
-
-        $queryResult = executarQuery($selectSQL, $retorno=true)[0];
-        $id = $queryResult['id'];
         
         $dados['localidade'] = converterChave($dados['localidade'], 'localidades', $getValor=false);
 
@@ -107,7 +104,7 @@
             `telefone` = '$telefone',
             `email` = '$email',
             `localidades_id` = $localidade
-            WHERE `$tabela`.`id` = $id";
+            WHERE `$tabela`.`id` = ".$_SESSION['user'][1];
         }
         else
         {
@@ -118,7 +115,7 @@
             `senha` = '$senha',
             `email` = '$email',
             `localidades_id` = '$localidade'
-            WHERE `$tabela`.`id` = $id";
+            WHERE `$tabela`.`id` = "$_SESSION['user'][1];
         }
 
         executarQuery($updateSQL);
@@ -127,9 +124,13 @@
 
     function armazenarDocumentos($dados, $files)
     {
+        include 'conectorBD.php';
+        
+        $filename = ;
         $dir = 'C:/xampp/htdocs/dashboard/primeira_entrega_2/storage/documentos/';
-        $upload = $dir.'basename($files['documento']['name'])';
-        if(!move_uploaded_file($files['documento']['tmp_name'], $upload))
+        $upload = $dir.basename($files['documento']['name']);
+
+        if(!move_uploaded_file($files['documento']['tmp_name'], $upload))//criar nome com o id do arquivo e do agricultor
         {
             echo 'erro no envio dos arquivos';
         }

@@ -76,6 +76,7 @@
 
             case 'documentos':
                 armazenarDocumentos($_POST, $_FILES);
+                header('Location: pages/telasAgricultor/enviarDocs.php');
                 break;
 
             default:
