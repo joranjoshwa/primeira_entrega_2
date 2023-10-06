@@ -3,3 +3,82 @@
 -talvez terá uma máscara nos inputs
 -verificar como arquivos privados são gravados em sites de empresas grandes para explicar
 -colocar verificação de sessão em todas as páginas não por no index.php
+
+
+    function atualizar($dados)
+    {
+        include 'util.php';
+        
+        if ($dados['tipo'] == 'agro')
+        {
+           $tabela = 'agricultores';
+           $selectSQL = "SELECT id, nome, CPF, CAF, senha, telefone, email, localidades_id FROM agricultores WHERE CPF = '".$_SESSION['user'][1]."';";
+        }
+        else
+        {
+            $tabela = 'instituicoes';
+            $selectSQL = 'SELECT id, `nome`, `CNPJ`, `email`, `senha`, `localidades_id` FROM instituicoes WHERE CNPJ = "'.$_SESSION['user'][1].'"';
+        }
+
+        $queryResult = executarQuery($selectSQL, $retorno=true)[0];
+        $id = $queryResult['id'];
+        unset($queryResult['id']);
+
+        /*
+        foreach ($queryResult as $coluna => $valor) 
+        {   
+            $col = $coluna;
+            if ($coluna == 'localidades_id')
+            {
+                $localidadeFK = converterChave($valor, 'localidades')[0]['nome'];
+                //colocar para onde vai no index
+                $col = 'localidade';
+            }
+                
+            if ($coluna == 'CAF' || $coluna == 'CPF' || $coluna == 'CNPJ') $col = strtolower($coluna);
+
+            if ($valor != $dados[$col])
+            {
+                if ($col == 'localidade' && $localidadeFK != $valor)
+                {
+                    $dados[$col] = converterChave($dados['col'], 'localidades', $getValor=false);
+                }
+                else
+                {
+                    $dados[$col] = $valor;
+                }
+            }
+            
+        }
+        */
+
+        extract($dados);
+        if ($tipo == 'agro')
+        {
+            $updateSQL = "UPDATE `$tabela` 
+            SET 
+            `nome` = '$nome', 
+            `CPF` = '$cpf',
+            `CAF` = '$caf',
+            `senha` = '$senha',
+            `telefone` = '$telefone',
+            `email` = '$email',
+            `localidades_id` = $localidade
+            WHERE `$tabela`.`id` = $id";
+        }
+        else
+        {
+            $updateSQL = "UPDATE `$tabela` 
+            SET 
+            `nome` = '$nome', 
+            `CNPJ` = '$cnpj',
+            `senha` = '$senha',
+            `email` = '$email',
+            `localidades_id` = '$localidade'
+            WHERE `$tabela`.`id` = $id";
+        }
+
+        echo $updateSQL;
+        if(!executarQuery($updateSQL)) return false;
+        return true;
+    }

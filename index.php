@@ -52,9 +52,9 @@
                 break;
 
             case 'atualizar':
-                if ($tipo == 'agro')
+                if(!atualizar($_POST))
                 {
-                    
+                    echo 'então...';
                 }
                 break;
 

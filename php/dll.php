@@ -78,50 +78,22 @@
     function atualizar($dados)
     {
         include 'util.php';
-        session_start();
         
-        if ($tipo == 'agro')
+        if ($dados['tipo'] == 'agro')
         {
            $tabela = 'agricultores';
-           $selectSQL = "SELECT nome, CPF, CAF, senha, telefone, email, localidades_id FROM agricultores WHERE id = ".$_SESSION['user'][1];
+           $selectSQL = "SELECT id FROM agricultores WHERE CPF = '".$_SESSION['user'][1]."';";
         }
         else
         {
             $tabela = 'instituicoes';
-            $selectSQL = 'SELECT `nome`, `CNPJ`, `email`, `senha`, `localidades_id` FROM instituicoes WHERE id = '.$_SESSION['user'][1];
+            $selectSQL = 'SELECT id FROM instituicoes WHERE CNPJ = "'.$_SESSION['user'][1].'"';
         }
 
         $queryResult = executarQuery($selectSQL, $retorno=true)[0];
-        foreach ($queryResult as $coluna => $valor) 
-        {   
-            $col = $coluna;
-            if ($coluna == 'localidades_id')
-            {
-                $localidadeFK = converterChave($valor, $tabela, $getValor=false);
-                $col = 'localidade';
-            }
-                
-            if ($tipo == 'agro')
-            {
-                if ($coluna == 'CAF' || $coluna == 'CPF') $col = strtolower($coluna);
-            }
-            else
-            {
-                if ($coluna == 'CNPJ') $col = strtolower($coluna);
-            }
-
-            if ($valor != $dados[$col])
-            {
-                if ($col == 'localidade' && $localidadeFK != $valor)
-                {
-                    $dados[$col] = $localidadeFK;
-                }
-                else
-                {
-                    $dados[$col] = $queryResult[$coluna];
-                }
-            }
-        }
+        $id = $queryResult['id'];
+        
+        $dados['localidade'] = converterChave($dados['localidade'], 'localidades', $getValor=false);
 
         extract($dados);
         if ($tipo == 'agro')
@@ -134,8 +106,8 @@
             `senha` = '$senha',
             `telefone` = '$telefone',
             `email` = '$email',
-            `localidades_id` = '$localidade'
-            WHERE `$tabela`.`id` = ".$_SESSION['user'][1];
+            `localidades_id` = $localidade
+            WHERE `$tabela`.`id` = $id";
         }
         else
         {
@@ -146,10 +118,11 @@
             `senha` = '$senha',
             `email` = '$email',
             `localidades_id` = '$localidade'
-            WHERE `$tabela`.`id` = ".$_SESSION['user'][1];
+            WHERE `$tabela`.`id` = $id";
         }
 
-        executarQuery($updateSQL);
+        if(!executarQuery($updateSQL)) return false;
+        return true;
     }
 
 ?>
