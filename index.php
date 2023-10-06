@@ -52,10 +52,30 @@
                 break;
 
             case 'atualizar':
+
+                if ($_POST['tipo'] == 'insti')
+                {
+                    $acao = 'telasInsti';
+                    $local = 'profileInsti';
+                }
+                else 
+                {
+                    $acao = 'telasAgricultor';
+                    $local = 'profileAgro';
+                }
+
                 if(!atualizar($_POST))
                 {
-                    echo 'então...';
+                    echo 'função atualizar';
+                    $_SESSION['erro'] = [true, 'Houve algo de errado com o(s) campo(s) atualizados'];
+                    header("Location: pages/$acao/editarPerfil.php");
                 }
+                header("Location: pages/profile/$local.html");
+
+                break;
+
+            case 'documentos':
+                armazenarDocumentos($_POST, $_FILES);
                 break;
 
             default:

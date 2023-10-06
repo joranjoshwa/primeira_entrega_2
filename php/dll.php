@@ -121,8 +121,18 @@
             WHERE `$tabela`.`id` = $id";
         }
 
-        if(!executarQuery($updateSQL)) return false;
+        executarQuery($updateSQL);
         return true;
+    }
+
+    function armazenarDocumentos($dados, $files)
+    {
+        $dir = 'C:/xampp/htdocs/dashboard/primeira_entrega_2/storage/documentos/';
+        $upload = $dir.'basename($files['documento']['name'])';
+        if(!move_uploaded_file($files['documento']['tmp_name'], $upload))
+        {
+            echo 'erro no envio dos arquivos';
+        }
     }
 
 ?>
