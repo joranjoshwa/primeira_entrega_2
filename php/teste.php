@@ -11,10 +11,7 @@
 
     include "util.php";
 
-    $chave = '2';
-    $tabela = 'localidades';
-    print_r(executarQuery("SELECT * FROM $tabela WHERE id = $chave", $retorno=true)[0]);
-    $result = converterChave($chave, $tabela)[0]['nome'];
+    $result=executarQuery('SELECT max(id) FROM arquivos', $retorno=true);
     print_r($result);
     ?>
 </pre>

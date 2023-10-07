@@ -2,7 +2,7 @@
     session_start();
     include '../../php/util.php';
 
-    $dados = executarQuery('SELECT `nome`, `CAF`, `CPF`, `senha`, `telefone`, `email`, `localidades_id` FROM agricultores WHERE CPF = "'.$_SESSION['user'][1].'";', $retorno=true)[0];
+    $dados = executarQuery('SELECT `nome`, `CAF`, `CPF`, `senha`, `telefone`, `email`, `localidades_id` FROM agricultores WHERE id = "'.$_SESSION['user'][1].'";', $retorno=true)[0];
     $dados['localidade'] = converterChave($dados['localidades_id'], 'localidades')[0]['nome'];
     
     unset($dados['localidades_id']);

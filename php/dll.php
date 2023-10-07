@@ -3,7 +3,7 @@
     function login($dados)
     {
         include 'conectorBD.php';
-        session_start();
+        //session_start();
         extract($dados);
 
         if (strlen($id)==11)
@@ -115,7 +115,7 @@
             `senha` = '$senha',
             `email` = '$email',
             `localidades_id` = '$localidade'
-            WHERE `$tabela`.`id` = "$_SESSION['user'][1];
+            WHERE `$tabela`.`id` = ".$_SESSION['user'][1];
         }
 
         executarQuery($updateSQL);
@@ -125,15 +125,33 @@
     function armazenarDocumentos($dados, $files)
     {
         include 'conectorBD.php';
+        include 'PATH.php';
+        extract($dados);
         
-        $filename = ;
-        $dir = 'C:/xampp/htdocs/dashboard/primeira_entrega_2/storage/documentos/';
-        $upload = $dir.basename($files['documento']['name']);
+        if (!$nome) $nome = pathinfo($files['documento']['name'], PATHINFO_FILENAME);
+
+        $ext = pathinfo($files['documento']['name'], PATHINFO_EXTENSION);
+        
+        executarQuery("INSERT INTO `arquivos`(`id`, `nome`, `agricultores_id`) 
+        VALUES (
+            NULL,
+            '$nome',
+            '".$_SESSION['user'][1]."')"
+        );
+
+        $fileID = executarQuery('SELECT max(id) FROM arquivos', $retorno=true)[0]['max(id)'];
+
+        $filename = $_SESSION['user'][1]."-$fileID-$nome.$ext";
+        
+        $directory = $dir.'storage/documentos/';
+        $upload = $directory.$filename;
+        echo $upload;
 
         if(!move_uploaded_file($files['documento']['tmp_name'], $upload))//criar nome com o id do arquivo e do agricultor
         {
             echo 'erro no envio dos arquivos';
         }
+
     }
 
 ?>
