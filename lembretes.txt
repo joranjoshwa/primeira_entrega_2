@@ -5,6 +5,7 @@
 -colocar verificação de sessão em todas as páginas não por no index.php
 -if(!atualizar) não funciona
 -toda vez que abrir um documento fazer uma autenticação
+-aplicações CRUD para moderadores
 
 function atualizar($dados)
     {
@@ -55,3 +56,13 @@ function atualizar($dados)
         executarQuery($updateSQL);
         return true;
     }
+
+delimiter //
+create procedure inserirProdutos (IN nomeProduto varchar(45), IN subtipoProduto varchar(45))
+BEGIN
+	set @idSubtipo = (select id from subtipo where nome = subtipoProduto);
+    insert into produtos (id, nome, subtipo_id)
+    values
+    (null, nomeProduto, @idSubtipo);
+END;
+//
