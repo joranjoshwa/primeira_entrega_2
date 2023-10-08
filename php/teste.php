@@ -11,8 +11,7 @@
 
     include "util.php";
 
-    $result=executarQuery('SELECT max(id) FROM arquivos', $retorno=true);
-    print_r($result);
+    print_r($_POST['']);
     ?>
 </pre>
 </body>

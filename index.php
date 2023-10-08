@@ -79,6 +79,11 @@
                 header('Location: pages/telasAgricultor/enviarDocs.php');
                 break;
 
+            case 'ofertas':
+                citarOfertas($_POST['produto']);
+                header('Location: pages/telasAgricultor/telaOfertas.php');
+                break;
+
             default:
                 break;
         }
