@@ -34,7 +34,7 @@ main{
 main .card{
     transform: translateY(-50%);
     margin: auto;
-    min-height: 50%;
+    min-height: 100%;
     margin-top: 50vh;
     padding: 2rem;
     display: flex;
@@ -47,7 +47,7 @@ main .card{
 main .card h1{
     margin: .5rem 0;
     text-align: center;
-    color: var(--cor_letra)
+    color: var(--cor_letra);
 }
 
 main .card div{
@@ -69,8 +69,8 @@ form input, form select{
     background-color: rgb(214, 214, 214);
     border-radius: 40px;
     outline: none;
-    
     width: 100%;
+    min-height: 2rem;
 }
 
 form input[type = "submit"]{

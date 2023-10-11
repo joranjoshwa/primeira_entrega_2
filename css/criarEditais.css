@@ -1,0 +1,39 @@
+textarea{
+    width: 100%;
+    height: fit-content;
+    resize: none;
+    font-size: 1rem;
+    padding: 1.8rem 1.8rem 1.8rem 1.8rem;
+    overflow: hidden;
+}
+textarea, input {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+label {
+    width: 100%;
+    font-size: 1rem;
+    margin-bottom: .5rem;
+}
+
+input[type="checkbox"]{
+    width: fit-content;
+}
+
+.listDoc{
+    width: 100%;
+}
+
+.listDoc span{
+    margin-right: 1.2rem;
+}
+
+label[for="listDoc"]{
+    margin: .8rem;
+}
+
+main .card{
+    min-height: none;
+    height: 100%;
+    overflow: auto;
+}

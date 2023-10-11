@@ -7,3 +7,4 @@
 -toda vez que abrir um documento fazer uma autenticação
 -aplicações CRUD para moderadores
 -fazer a função de logout
+-ideias de textos informativos para colocar na home do agricultor
