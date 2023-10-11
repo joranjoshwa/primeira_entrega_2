@@ -204,7 +204,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 delimiter //
 create procedure inserirProdutos (IN nomeProduto varchar(45), IN subtipoProduto varchar(45))
 BEGIN
-	set @idSubtipo = (select id from subtipo where nome = subtipoProduto);
+	set @idSubtipo = (select id from subtipos where nome = subtipoProduto);
     insert into produtos (id, nome, subtipos_id)
     values
     (null, nomeProduto, @idSubtipo);
