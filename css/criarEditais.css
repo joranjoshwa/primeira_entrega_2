@@ -20,23 +20,40 @@ label {
 }
 
 input[type="checkbox"]{
+    
     width: fit-content;
 }
 
-.listDoc{
-    width: 100%;
-}
-
-.listDoc span{
+span{
+    display: flex;
+    align-items: center;
+    padding-left: 2rem;
     margin-right: 1.2rem;
 }
+ span input, span label{
+    height: 100%;
+    margin-bottom: 0;
+}
 
-label[for="listDoc"]{
-    margin: .8rem;
+span label {
+    margin-left: .4rem;
+    display: flex;
+    align-items: center;
 }
 
 main .card{
     min-height: none;
     height: 100%;
     overflow: auto;
+}
+
+label[for="docs"]{
+    margin-top: 2rem;
+}
+
+.docs {
+    width: 95%;
+    border: solid 1px black;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
 }
