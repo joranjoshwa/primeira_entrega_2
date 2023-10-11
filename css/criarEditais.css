@@ -5,6 +5,9 @@ textarea{
     font-size: 1rem;
     padding: 1.8rem 1.8rem 1.8rem 1.8rem;
     overflow: hidden;
+    border: none;
+    background-color: #ddd;
+    border-radius: 50px;
 }
 textarea, input {
     font-family: Helvetica, Arial, sans-serif;
