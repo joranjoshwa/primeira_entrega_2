@@ -8,8 +8,8 @@
 *::before, 
 *{
     box-sizing: border-box;
-    margin: 0%;
-    padding: 0%;
+    margin: 0;
+    padding: 0;
 }
 
 body, html{
@@ -34,7 +34,7 @@ main{
 main .card{
     transform: translateY(-50%);
     margin: auto;
-    min-height: 100%;
+    min-height: 50%;
     margin-top: 50vh;
     padding: 2rem;
     display: flex;
