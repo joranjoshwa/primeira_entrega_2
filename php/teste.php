@@ -11,7 +11,8 @@
 
     include "util.php";
 
-    print_r($_POST['']);
+    $result = executarQuery('SELECT nome From documentos',$retorno=true);
+    print_r($result);
     ?>
 </pre>
 </body>

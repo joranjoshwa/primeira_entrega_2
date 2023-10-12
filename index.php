@@ -84,6 +84,11 @@
                 header('Location: pages/telasAgricultor/telaOfertas.php');
                 break;
 
+            case 'editais':
+                criarEditais($_POST);
+                header('Location: pages/telasInstituicao/criarEditais.php');
+                break;
+
             default:
                 break;
         }

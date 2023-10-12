@@ -2,7 +2,7 @@
 include '../../php/conectorBD.php';
 session_start();
 
-$result=executarQuery('SELECT nome, subtipos_id FROM produtos ORDER BY subtipos_id', $retorno=true);
+$result = executarQuery('SELECT nome, subtipos_id FROM produtos ORDER BY subtipos_id', $retorno=true);
 foreach ($result as $chave => $valor) 
 {
     if (!isset($produtos[$valor['subtipos_id']]))
@@ -11,7 +11,15 @@ foreach ($result as $chave => $valor)
     }
     array_push($produtos[$valor['subtipos_id']], $valor['nome']);
 }
+
+$result = executarQuery('SELECT nome From documentos',$retorno=true);
+$documentos = [];
+foreach ($result as $indice => $documento) 
+{
+    array_push($documentos, $documento['nome']);    
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -28,7 +36,7 @@ foreach ($result as $chave => $valor)
         <div class="card">
             <h1>Adicionar edital</h1>
 
-            <form action="../../php/teste.php" method="post">
+            <form action="../../index.php" method="post">
                 <label for="nome">Insira o título do edital:</label>
                 <input type="text" name="nome" id="nome" placeholder="Título" required>
 
@@ -47,28 +55,15 @@ foreach ($result as $chave => $valor)
 
                 <label for="docs">Documentos requisitados:</label>
                 <span class="docs" id="docs">
-                    <span>
-                        <input type="checkbox" name="documentos[]">
-                        <label for="cpf">CPF</label>
-                    </span>
-
-                    <span>
-                        <input type="checkbox" name="documentos[]">
-                        <label for="cpf">CAF</label>
-                    </span>
-
-                    <span>
-                        <input type="checkbox" name="documentos[]">
-                        <label for="cpf">CPF</label>
-                    </span>
-
-                    <span>
-                        <input type="checkbox" name="documentos[]">
-                        <label for="cpf">CPF</label>
-                    </span>
-
-                    
-
+                    <?php
+                    foreach ($documentos as $indice => $nome) 
+                    {
+                        echo "<span>
+                        <input type='checkbox' name='documentos[]' value='$nome'>
+                        <label for='cpf'>$nome</label>
+                        </span>";
+                    }
+                    ?>
                 </span>
 
                 <h2>Escolha os itens para a demanda:</h2>
@@ -92,6 +87,7 @@ foreach ($result as $chave => $valor)
                 }
                 ?>
 
+                <input type="hidden" name="tela" value="editais">
                 <input type="submit" value="criar">
             </form>
         </div>

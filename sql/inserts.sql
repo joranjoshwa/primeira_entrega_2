@@ -18,7 +18,7 @@ INSERT INTO `agricultores` (`id`, `nome`, `CAF`, `CPF`, `senha`, `telefone`, `em
 VALUES 
 (NULL, 'pero', '23213321232', '31123123', '123123123', '123123123', '213213123', '2');
 -----
-insert into subtipo (nome)
+insert into subtipos (nome)
 values
 ('cereais'),
 ('tuberculos'),
@@ -41,3 +41,14 @@ call inserirProdutos("Beterraba", "leguminosas");
 call inserirProdutos("Cenoura", "leguminosas");
 call inserirProdutos("Chuchu", "leguminosas");
 call inserirProdutos("Alface", "hortaliças");
+
+insert into documentos (nome) values
+('CPF'),
+('DAP'),
+('declaração de produção própria'),
+('CAF'),
+('CNPJ'),
+('declaração de produção da associação/cooperativa'),
+('Declaração da associação/cooperativa do não emprego de menores de idade'),
+('Prova de regularidade fiscal da associação/cooperativa'),
+('Registro da organização');

@@ -125,7 +125,7 @@
     function armazenarDocumentos($dados, $files)
     {
         include 'conectorBD.php';
-        include 'PATH.php';
+        include 'dir.php';//mudei
         extract($dados);
         
         if (!$nome) $nome = pathinfo($files['documento']['name'], PATHINFO_FILENAME);
@@ -170,4 +170,40 @@
         executarQuery($insertSQL);
     }
 
+    //falta testar
+    function criarEditais($dados)
+    {
+        include 'util.php';
+        extract($dados);
+
+        executarQuery("INSERT INTO 
+        `editais`(`titulo`, `instituicoes_id`, `descricao`, `dataIni`, `dataFim`, `link`) 
+        VALUES (
+            '$nome',
+            '".$_SESSION['user'][1]."',
+            '$descricao',
+            '$dataIni',
+            '$dataFim',
+            '$link')");
+
+        $editaisID = executarQuery('SELECT max(id) FROM editais', $retorno=true)[0]['max(id)'];
+        
+        foreach ($demandas as $indice => $nome) 
+        {
+            $produtosID = converterChave($nome, 'produtos', $getValor=false);
+            executarQuery("INSERT INTO `demandas`(`editais_id`, `produtos_id`) 
+            VALUES (
+            '$editaisID',
+            '$produtosID')");
+        }
+
+        foreach ($documentos as $indice => $documento) 
+        {
+            $documentosID = converterChave($documento, 'documentos', $getValor=false);
+            executarQuery("INSERT INTO `requisitos`(`documentos_id`, `editais_id`) 
+            VALUES (
+            '$documentosID',
+            '$editaisID')");
+        }
+    }
 ?>
