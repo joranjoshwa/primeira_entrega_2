@@ -1,0 +1,71 @@
+section{
+    margin: 5rem auto;
+    width: 90%;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 10px;
+}
+
+a{
+    display: block;
+    text-decoration: none;
+    width: fit-content;
+}
+
+a[href="./criarEditais.php"]{
+    color: white;
+    background-color: var(--cor_destaque);
+    padding: 1rem;
+    border-radius: inherit;
+}
+
+section div.editais{
+    display: flex;
+    padding: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: solid 1px black;
+}
+
+.lista{
+    margin-top: 2rem;
+}
+
+
+h1{
+    text-align: center;
+    width: 100%;
+}
+
+form{
+    width: 100%;
+    padding: 0;
+}
+
+input[type="submit"]{
+    width: fit-content;
+}
+
+span.submit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+}
+
+
+.header{
+    display: flex;
+}
+
+.header div{
+    text-align: center;
+    border-bottom: solid black 1px;
+}
+
+.periodo{
+    width: 40%;
+}
+.nome{
+    width: 20%;
+}

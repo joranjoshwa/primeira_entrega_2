@@ -1,0 +1,33 @@
+section{
+    margin: 5rem auto;
+    width: 90%;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 10px;
+}
+
+h1,p,div,a{
+    margin: 2rem 0;
+}
+
+a{
+    display: block;
+    text-decoration: none;
+    width: fit-content;
+    color: var(--cor_destaque);
+}
+
+.data{
+    font-weight: bold;
+    color: var(--cor_destaque);
+
+}
+
+div span{
+    display: block;
+    margin: 1rem 0;
+}
+
+label{
+    border-bottom: dashed black 1px;
+}
