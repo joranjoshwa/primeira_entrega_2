@@ -240,7 +240,27 @@ BEGIN
     (null, nomeProduto, @idSubtipo);
 END$$
 
-DELIMITER ;
+DELIMITER $$
+use agrofam$$
+CREATE PROCEDURE selecionarEditaisLocalidade(IN $nomeLocalidade varchar(45))
+BEGIN
+	SELECT editais.id, titulo, dataIni, dataFim FROM editais, instituicoes, localidades
+	WHERE 
+	instituicoes_id = instituicoes.id AND
+	instituicoes.localidades_id = localidades.id AND
+	localidades.nome = $nomeLocalidade;
+END$$
+
+DELIMITER $$
+CREATE PROCEDURE selecionarEditaisProdutos (IN $produto varchar(45))
+BEGIN
+	SELECT editais.id, titulo, dataIni, dataFim 
+    FROM editais, demandas, produtos 
+    WHERE
+    editais.id = demandas.editais_id AND
+    demandas.produtos_id = produtos.id AND
+    produtos.nome = $produto;
+END$$
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
