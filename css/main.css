@@ -112,40 +112,32 @@ h2{
 }
 
 nav{
-    height: 2.5rem;
+    height: fit-content;
     position: absolute;
-    display: block;
+    display: flex;
     top:0;
+    padding: .5rem;
+    justify-content: space-between;
+    align-items: center;
     text-align: center;
     background-color: white;
     box-shadow: 0px .1rem 0px rgb(154, 154, 154);
     width: 100%;
-}
-
-nav span, nav div{
-    height: 100%;
-    position: absolute;
-    width: 50%;
-    display: flex;
-    align-items: center;
-
-}
-
-nav span{
-    justify-content: start;
-    left: 5%;
+    z-index: 2;
 }
 
 nav a{
     display: block;
-    justify-content: end;
+    height: 3rem;
+    width: fit-content;
+    
+    aspect-ratio: 1/1;
+    border-radius: 50px;
+    border: solid black 1px;
 }
 
-nav div{
-    right: 5%;
-    justify-content: end;
-    background-color: rgb(49, 49, 49);
-    aspect-ratio: 1/1;
-    width: 4rem;
-    border-radius: 50px;
+nav a img{
+    object-fit: cover;
+    height: inherit;
+    object-position: center;
 }

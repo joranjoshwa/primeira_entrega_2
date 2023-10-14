@@ -4,25 +4,6 @@ main{
     padding-left: 1rem;
     padding-right: 1rem;
 }
-
-.item img{
-    height: 8rem;
-    object-fit: scale-down;
-    border: solid black 1px;
-    margin: .5rem;
-}
-
-.item{
-    display: flex;
-    background-color: #ddd;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-}
-.item p{
-    line-height: 1.3rem;
-    padding: 1rem;
-}
-
 form{
     display: flex;
     flex-direction: row;
@@ -30,6 +11,48 @@ form{
     justify-content: space-between;
 }
 
-form input[type="submit"]{
+form input[type="submit"], select{
     margin-left: 1rem;
+}
+
+.editais form{
+    width: 100%;
+    padding: 0;
+}
+
+.editais input[type="submit"]{
+    width: fit-content;
+}
+
+.editais{
+    text-align: center;
+    display: flex;
+    padding: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: solid 1px black;
+}
+
+span.submit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+}
+
+
+.header{
+    display: flex;
+}
+
+.header div{
+    text-align: center;
+    border-bottom: solid black 1px;
+}
+
+.periodo{
+    width: 40%;
+}
+.nome{
+    width: 20%;
 }
