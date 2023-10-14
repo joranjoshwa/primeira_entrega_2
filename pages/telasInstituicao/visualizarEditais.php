@@ -36,8 +36,8 @@
                 <span class='nome'>$titulo</span>
                 <div class='data periodo'>$dataIni a $dataFim</div>
                 <span class='submit'>
-                <form method='post' action='../util/exibirEdital.html'>
-                <input type='submit' value='visualizar'><input type='hidden' value='$id'>
+                <form method='post' action='../util/exibirEdital.php'>
+                <input type='submit' value='visualizar'><input name='id' type='hidden' value='$id'>
                 </form>
                 </span>
                 </div>";
