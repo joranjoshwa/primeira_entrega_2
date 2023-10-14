@@ -262,6 +262,25 @@ BEGIN
     produtos.nome = $produto;
 END$$
 
+DELIMITER $$
+CREATE PROCEDURE selecionarOfertasRegiao (IN $regiao varchar(45))
+BEGIN
+	SELECT ofertas.* FROM localidades, ofertas, agricultores
+    WHERE
+    ofertas.agricultores_id = agricultores.id AND
+    agricultores.localidades_id = localidades.id AND
+    localidades.id = 5;
+END$$	
+
+DELIMITER $$
+CREATE PROCEDURE selecionarOfertasProduto (IN $produto varchar(45))
+BEGIN
+	SELECT ofertas.* FROM ofertas, produtos 
+    WHERE
+    ofertas.produtos_id = produtos.id AND
+    produtos.nome = $produto;
+END$$
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

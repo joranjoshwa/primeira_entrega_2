@@ -71,7 +71,7 @@ form{
     border-right: none;
     border-left: none;
     width: 100%;
-    line-height: 200%;
+    line-height: 300%;
 }
 
 .bTabela .select{
@@ -82,7 +82,7 @@ form{
 
 .bTabela .select span{
     display: flex;
-    width: 100%;
+    width: 50%;
     justify-content: center;
     align-items: center;
 }

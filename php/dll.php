@@ -159,18 +159,20 @@
         include 'conectorBD.php';
         executarQuery('DELETE FROM ofertas where agricultores_id ='.$_SESSION['user'][1]);
         
-        $insertSQL = "INSERT INTO ofertas (produtos_id, agricultores_id) VALUES";
-        foreach ($produtos as $indice => $valor) 
+        if($produtos != [])
         {
-            $produtos_id = executarQuery("SELECT id from produtos WHERE nome = '$valor'", $retorno=true)[0]['id'];
-            $insertSQL = $insertSQL."('$produtos_id','".$_SESSION['user'][1]."'),";
+            $insertSQL = "INSERT INTO ofertas (produtos_id, agricultores_id) VALUES";
+            foreach ($produtos as $indice => $valor) 
+            {
+                $produtos_id = executarQuery("SELECT id from produtos WHERE nome = '$valor'", $retorno=true)[0]['id'];
+                $insertSQL = $insertSQL."('$produtos_id','".$_SESSION['user'][1]."'),";
+            }
+            $insertSQL = rtrim($insertSQL, ",");
+            $insertSQL = $insertSQL.";";
+            executarQuery($insertSQL);
         }
-        $insertSQL = rtrim($insertSQL, ",");
-        $insertSQL = $insertSQL.";";
-        executarQuery($insertSQL);
     }
 
-    //falta testar
     function criarEditais($dados)
     {
         include 'util.php';
