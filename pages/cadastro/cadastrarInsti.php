@@ -16,7 +16,7 @@
                 
                 <input type="text" name="nome" placeholder="Nome da Instituição" required>
                 <input type="password" name="senha" placeholder="Senha" required>
-                <input type="number" name="cnpj" placeholder="CNPJ" minlenght="14" maxlength="14" required>
+                <input type="text" name="cnpj" placeholder="CNPJ"  minlength="14" maxlength="14" required>
                 <input type="email" name="email" placeholder="instituicao@agrofam.com" required>
                  <select name="localidade" required>
                     <option disabled selected>Escolha uma opção</option>
