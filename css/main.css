@@ -141,3 +141,10 @@ nav a img{
     height: inherit;
     object-position: center;
 }
+
+label[for="profilePic"]{
+    display: block;
+    width: 100%;
+    margin-bottom: .5rem;
+    border-bottom: dashed black 1px;
+}

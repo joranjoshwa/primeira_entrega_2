@@ -14,7 +14,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/main.css?v=1">
     <title>AgroFam+</title>
 </head>
 <body> 
@@ -43,8 +43,16 @@
                     ?>
                 </select>
                 <input type="number" name="caf" placeholder="CAF" value="<?php echo $CAF?>" required>
-                <input type="number" name="telefone" placeholder="Telefone" value="<?php echo $telefone?>" required>
-                <input type="email" name="email" placeholder="E-mail" value="<?php echo $email?>" required>
+                
+                <input type="text" name="telefone" value="<?php echo $telefone?>" placeholder="XX 9XXXX-XXXX" required pattern="[0-9]{2}.{1}9[0-9]{4}-[0-9]{4}">
+                <input type="email" name="email" placeholder="agricultor@agrofam.com" value="<?php echo $email?>" required>
+                
+                <!--<input type="number" name="telefone" placeholder="Telefone" value="< ?php echo $telefone?>" required>
+                <input type="email" name="email" placeholder="E-mail" value="< ?php echo $email?>" required>-->
+
+                <input type="hidden" name="MAX_FILE_SIZE" value="500000">
+                <label for="profilePic"> Foto de Perfil</label>
+                <input type="file" name="profilePic" accept=".jpeg .jpg .png">
 
                 <input type="hidden" name="tela" value="atualizar">
                 <input type="hidden" name="tipo" value="agro"><!--será removido coma criação da sessão de logado-->

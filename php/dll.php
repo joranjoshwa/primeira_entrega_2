@@ -32,7 +32,7 @@
         return false;
     }
 
-    function registrar($dados){
+    function registrar($dados, $img){
         include 'util.php';
 
         extract($dados);
@@ -52,7 +52,7 @@
                     $localidadeFK
                 );");
 
-                return true;
+                $userID = executarQuery('SELECT max(id) FROM instituicoes', $retorno=true)[0]['max(id)'];
             } 
         }
         else if ($tipo == 'agro')
@@ -70,14 +70,26 @@
                     '$email', 
                     '$localidadeFK');");
 
-                return true;
+                $userID = executarQuery('SELECT max(id) FROM agricultores', $retorno=true)[0]['max(id)'];
             }
+        }
+
+        if (isset($userID))
+        {
+            $fileName = "C:/xampp/htdocs/primeira_entrega_2/storage/profilePictures/$tipo/$userID ".basename($img['profilePic']['name']);
+           echo $img['profilePic']['error'];
+            if(!move_uploaded_file($img['profilePic']['tmp_name'], $fileName))
+            {
+                echo 'erro no envio dos arquivos';
+            }
+
+            return true;
         }
 
         return false;
     }
 
-    function atualizar($dados)
+    function atualizar($dados, $img)
     {
         include 'util.php';
         

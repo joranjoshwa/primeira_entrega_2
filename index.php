@@ -1,6 +1,5 @@
 <?php
     session_start();
-    $_SESSION['erro'] = [false, '']; 
     include './php/dll.php';
 
     if (isset($_POST['tela']))
@@ -33,19 +32,9 @@
                 break;
     
             case 'registrar':
-                if(!registrar($_POST))
+                if(!registrar($_POST, $_FILES))
                 {
-                    $_SESSION['erro'][1] = "Algo deu errado no seu cadastro";
-                    $_SESSION['erro'][0] = true;
-                    if ($_POST['tipo'] == 'insti')
-                    {
-                        $local = 'cadastrarInsti';
-                    } 
-                    else 
-                    {
-                        $local = 'cadastrarAgro';
-                    }
-                    header("Location: pages/cadastro/$local.php");
+                    $_SESSION['erro'] = 'Seu cadastro falhou!';
                 }
                 $page = 'login/entrar';
                 $stylesheet = 'entrar';
@@ -64,7 +53,7 @@
                     $local = 'profileAgro';
                 }
 
-                if(!atualizar($_POST))
+                if(!atualizar($_POST, $_FILES))
                 {
                     echo 'função atualizar';
                     $_SESSION['erro'] = [true, 'Houve algo de errado com o(s) campo(s) atualizados'];
@@ -112,10 +101,6 @@
     <title>AgroFam+</title>
 </head>
 <?php
-    if ($_SESSION['erro'][0]){
-        echo '<h3 class="erroMSG">'.$_SESSION['erro'][1].'</h3>';
-        $_SESSION['erro'][0] = false;
-    }
     include "./pages/".$page.".html";
 ?>
 </html>

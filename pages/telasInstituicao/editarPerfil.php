@@ -42,7 +42,11 @@
                     ?>
                 </select>
                 <input type="number" name="cnpj" placeholder="CNPJ" value="<?php echo $CNPJ?>" required>
-                <input type="email" name="email" placeholder="E-mail" value="<?php echo $email?>" required>
+                <input type="email" name="email" placeholder="instituicao@agrofam.com" value="<?php echo $email?>" required>
+                
+                <input type="hidden" name="MAX_FILE_SIZE" value="500000">
+                <label for="profilePic"> Foto de Perfil</label>
+                <input type="file" name="profilePic" accept=".jpeg .jpg .png">
 
                 <input type="hidden" name="tela" value="atualizar">
                 <input type="hidden" name="tipo" value="insti"><!--será removido coma criação da sessão de logado-->

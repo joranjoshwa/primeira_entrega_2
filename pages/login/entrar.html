@@ -2,6 +2,12 @@
     <main>
         <div class="card">
             <h1>agrofam</h1>
+            <?php
+            if (isset($_SESSION['erro'])){
+                echo '<h3 class="erroMSG">'.$_SESSION['erro'].'</h3>';
+                unset($_SESSION['erro']);
+            }
+            ?>
             <form action="index.php" method="post">
                 <div>
                     <img src="img/farmBoy.svg" alt="Fazendeiro Segurando Plantas">

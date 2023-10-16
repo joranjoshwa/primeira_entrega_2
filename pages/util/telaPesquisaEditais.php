@@ -17,6 +17,11 @@
 
     if (isset($_POST['pesquisar']))
     {
+        if(!isset($_POST['produtos']) && !isset(($_POST['regiao'])))
+        {
+            $editais = executarQuery("SELECT * FROM editais", $retorno=true);  
+        }
+        
         extract($_POST);
 
         if(isset($regiao))
