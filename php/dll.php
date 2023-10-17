@@ -76,8 +76,9 @@
 
         if (isset($userID))
         {
-            $fileName = "C:/xampp/htdocs/primeira_entrega_2/storage/profilePictures/$tipo/$userID ".basename($img['profilePic']['name']);
-           echo $img['profilePic']['error'];
+            $ext = pathinfo($img['profilePic']['name'], PATHINFO_EXTENSION);
+            //tirar esse dashboard
+            $fileName = "C:/xampp/htdocs/dashboard/primeira_entrega_2/storage/profilePictures/$tipo/$userID.$ext";
             if(!move_uploaded_file($img['profilePic']['tmp_name'], $fileName))
             {
                 echo 'erro no envio dos arquivos';

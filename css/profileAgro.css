@@ -1,3 +1,7 @@
+main .card div{
+    overflow: hidden;
+}
+
 .foto{
     width: 10%;
     aspect-ratio: 1/1;
@@ -7,6 +11,14 @@
     margin-bottom: 1.2rem;
     
 }
+
+.foto img{
+    object-fit: scale-down;
+    object-position: center;
+    height: 100%;
+    overflow: hidden;
+}
+
 .user{ 
     text-align: center;
     display: flex;

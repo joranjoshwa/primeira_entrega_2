@@ -15,7 +15,7 @@
                 <div class="overflow">
                     <input type="text" name="nome" placeholder="Nome" required>
                     <input type="password" name="senha" placeholder="Senha" required>
-                    <input type="text" name="cpf" placeholder="CPF"  minlength="11" maxlength="11" required>
+                    <input type="text" name="cpf" placeholder="CPF"  minlength="11" maxlength="11" pattern="[0-9]{11}" required>
                     <select name="localidade" required>
                         <option disabled selected>Escolha uma opção</option>
                         <option value="Eunápolis">Eunápolis</option>
@@ -28,7 +28,7 @@
                     
                     
                     <label for="profilePic"> Foto de Perfil</label>
-                    <input type="file" name="profilePic" accept="img/*" required>
+                    <input type="file" name="profilePic" accept=".jpg" required>
                     <p><span>atenção</span>, essa plataforma é de uso exclusivo a agricultores familiares, caso não se enquadre, não prossiga, é totalmente proibido inscrever instituições sem autorização.</p>
                 </div>
 

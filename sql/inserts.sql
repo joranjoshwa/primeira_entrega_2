@@ -48,7 +48,7 @@ insert into documentos (nome) values
 ('declaração de produção própria'),
 ('CAF'),
 ('CNPJ'),
-('declaração de produção da associação/cooperativa'),
+('Declaração de produção da associação/cooperativa'),
 ('Declaração da associação/cooperativa do não emprego de menores de idade'),
 ('Prova de regularidade fiscal da associação/cooperativa'),
 ('Registro da organização');

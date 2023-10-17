@@ -4,10 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/main.css?version=9">
+    <link rel="stylesheet" href="../../css/main.css?version=10">
+    <link rel="stylesheet" href="../../css/profileAgro.css?version=4">
     <title>AgroFam+</title>
 </head>
 <body>
+    <nav>
+        <span><a href="../../index.php">AgroFam+</a></span>
+        <a href="pages/profile/profileInsti.html"><img src="../../storage/profilePictures/agro/<?php echo $_SESSION['user'][1]?>.jpg"></a>
+    </nav>
     <main>
         <div class="card">
             <h1>Instituição</h1>
@@ -26,7 +31,7 @@
                 </select>
 
                 <label for="profilePic"> Foto de Perfil</label>
-                <input type="file" name="profilePic" accept="img/*">
+                <input type="file" name="profilePic" accept=".jpg">
                 <!--<input type="text" name="localidade" placeholder="Localidade" required>-->
                 <p><span>atenção</span>, Esta aba de cadastro é exclusiva para instituição. Não realize
                 cadastros em nome de instituições sem autorização.</p>

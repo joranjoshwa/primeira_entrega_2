@@ -1,22 +1,25 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/main.css">
-    <link rel="stylesheet" href="../../css/profileAgro.css?version=1">
+    <link rel="stylesheet" href="../../css/profileAgro.css?version=4">
 
     <title>Document</title>
 </head>
 <body> 
     <nav>
-        <span>AgroFam+</span>
-        <a href="pages/profile/profileInsti.html"><img src="../../storage/profilePictures/instituicao/ifba1.png"></a>
+        <span><a href="../../index.php">AgroFam+</a></span>
+        <a href="pages/profile/profileInsti.html"><img src="../../storage/profilePictures/agro/<?php echo $_SESSION['user'][1]?>.jpg"></a>
     </nav>
     <main>
         <div class="card">
             <h1>Agrofam+</h1>
-            <div class="foto"></div>
+            <div class="foto"><img src="../../storage/profilePictures/agro/<?php echo $_SESSION['user'][1]?>.jpg" alt=""></div>
             <div class="user">
                 <span class="nome"><b>agrofam</b> user</span>
                 <span class="detalhes">Eunápolis, Bahia, agricultor</span>

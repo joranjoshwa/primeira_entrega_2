@@ -10,8 +10,7 @@
             case 'login':
                 if(!login($_POST))  
                 {
-                    $_SESSION['erro'][1] = "Algo deu errado no seu login";
-                    $_SESSION['erro'][0] = true; 
+                    $_SESSION['erro'] = "Algo deu errado no seu login"; 
 
                     $page = 'login/entrar';
                     $stylesheet = 'entrar';
@@ -56,7 +55,7 @@
                 if(!atualizar($_POST, $_FILES))
                 {
                     echo 'função atualizar';
-                    $_SESSION['erro'] = [true, 'Houve algo de errado com o(s) campo(s) atualizados'];
+                    $_SESSION['erro'] = 'Houve algo de errado com o(s) campo(s) atualizados';
                     header("Location: pages/$acao/editarPerfil.php");
                 }
                 header("Location: pages/profile/$local.html");
