@@ -12,7 +12,7 @@
             if($queryResult == "".$senha)
             {
                 $chave = executarQuery("SELECT id FROM agricultores WHERE CPF = $id;", $retorno=true)[0]['id'];//<-isso
-                $_SESSION['user'] = [true, $chave]; 
+                $_SESSION['user'] = [true, $chave, 'agro']; 
                 return true;
             }
 
@@ -25,7 +25,7 @@
             if($queryResult == "".$senha) 
             {
                 $chave = executarQuery("SELECT id FROM instituicoes WHERE CNPJ = $id;", $retorno=true)[0]['id'];//<-isso
-                $_SESSION['user'] = [true, $chave]; 
+                $_SESSION['user'] = [true, $chave, 'insti']; 
                 return true;
             }
         }
