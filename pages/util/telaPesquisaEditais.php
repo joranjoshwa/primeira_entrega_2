@@ -70,7 +70,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/main.css?v=2">
     <link rel="stylesheet" href="../../css/telaPesquisa.css?v=1">
 
     <title>AgroFam+</title>
@@ -78,7 +78,7 @@
 
 <body>
     <nav>
-        <span><a href="../../index.php">AgroFam+</a></span>
+        <span><a id="index" href="../../index.php"><img src="../../img/agrofam.svg"></a></span>
         <a href="pages/profile/profileInsti.html"><img src="../../storage/profilePictures/<?php session_start(); echo $_SESSION['user'][2]."/".$_SESSION['user'][1]?>.jpg"></a>
     </nav>
     <main>

@@ -1,4 +1,4 @@
-.overflow{
+input[type="number"], input[type="password"]{
     width: 50%;
 }
 a{
@@ -6,4 +6,17 @@ a{
     color: var(--cor_letra);
     font-size: .8rem;
     width: 50%;
+}
+
+.agrofam img{
+    height: 8rem;
+    object-fit: scale-down;
+}
+
+.agrofam{
+    margin: auto;
+}
+
+main .card {
+    transform: translateY(-70%);
 }

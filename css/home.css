@@ -1,6 +1,11 @@
 .card{
     align-items: center;
     justify-content: center;
+    height: fit-content;
+}
+
+main{
+    height: 80%;
 }
 
 .opcao{

@@ -1,5 +1,6 @@
-main .card div{
-    overflow: hidden;
+main {
+    margin-top: 2%;
+    height: fit-content;
 }
 
 .foto{
@@ -9,6 +10,8 @@ main .card div{
     border-radius: 80px;
     background-color: rgb(59, 58, 58);
     margin-bottom: 1.2rem;
+    overflow: hidden;
+    box-shadow: 2px 2px 0 rgb(100, 100, 100);
     
 }
 
@@ -16,7 +19,6 @@ main .card div{
     object-fit: scale-down;
     object-position: center;
     height: 100%;
-    overflow: hidden;
 }
 
 .user{ 

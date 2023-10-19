@@ -14,6 +14,10 @@
     <title>AgroFam+</title>
 </head>
 <body>
+    <nav>
+        <span><a href="../../index.php" id="index"><img src="../../img/agrofam.svg"></a></span>
+        <a href="../../pages/profile/profileAgro.php"><img src="../../storage/profilePictures/agro/<?php echo $_SESSION['user'][1]?>.jpg"></a>
+    </nav>
     <main>
         <div class="card">
             <h1>Documentos</h1>
@@ -25,7 +29,7 @@
                 <input type="hidden" name="tela" value="documentos">
                 <input type="submit" value="concluído">
             </form>
-
+            
             <section>
                 <?php
                     foreach ($arquivos as $indice => $valor) 

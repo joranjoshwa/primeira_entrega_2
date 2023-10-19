@@ -5,7 +5,7 @@
 }
 
 *::after,
-*::before, 
+*::before,
 *{
     box-sizing: border-box;
     margin: 0;
@@ -23,18 +23,18 @@ html{
 
 body{
     overflow: auto;
-    background-color: rgb(228, 228, 228);
 }
 
 main{
     width: 100%;
-    height: 100vh;
+    height: 90vh;
     overflow: hidden;
 }
 main .card{
-    transform: translateY(-50%);
+    transform: translateY(-60%);
     margin: auto;
-    min-height: 50%;
+    height: 75%;
+    padding: 1rem;
     margin-top: 50vh;
     padding: 2rem;
     display: flex;
@@ -50,8 +50,10 @@ main .card h1{
     color: var(--cor_letra);
 }
 
-main .card div{
+main .card div.overflow{
     overflow: auto;
+    height: 90%;
+    width: 100%;
 }
 
 form{
@@ -81,6 +83,8 @@ form input[type = "submit"]{
     font-size: 1.2rem;
     border-radius: 10px;
     width: 50%;
+    margin: auto;
+    display: block;
     margin-top: 2rem;
     bottom: 0px;
 }
@@ -113,9 +117,9 @@ h2{
 
 nav{
     height: fit-content;
-    position: absolute;
     display: flex;
-    top:0;
+    position: sticky;
+    top: 0;
     padding: .5rem;
     justify-content: space-between;
     align-items: center;
@@ -131,13 +135,27 @@ nav a{
     height: 3rem;
     width: fit-content;
     overflow: hidden;
-    
+
     aspect-ratio: 1/1;
     border-radius: 50px;
-    border: solid black 1px;
+    box-shadow: 2px 2px 0 rgb(100, 100, 100);
+}
+
+#index{
+    aspect-ratio: unset;
+    border-radius: unset;
+    border: unset;
+    box-shadow: unset;
+}
+
+nav a#index img{
+    width: 10rem;
+    object-fit: cover;
+    filter: invert(67%) sepia(15%) saturate(4392%) hue-rotate(71deg) brightness(99%) contrast(81%);
 }
 
 nav a img{
+    overflow: hidden;
     object-fit: scale-down;
     height: inherit;
     object-position: center;
@@ -149,3 +167,4 @@ label[for="profilePic"]{
     margin-bottom: .5rem;
     border-bottom: dashed black 1px;
 }
+

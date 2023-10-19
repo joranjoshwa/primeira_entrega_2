@@ -1,7 +1,9 @@
 <body>
     <nav>
-        <span>AgroFam+</span>
-        <a href="pages/profile/profileAgro.php"><div>perfil</div></a>
+        <span><a href="index.php" id="index"><img src="img/agrofam.svg"></a></span>
+        <a class="perfil" href="pages/profile/profileAgro.php">
+            <img src="storage/profilePictures/agro/<?php echo $_SESSION['user'][1]?>.jpg">
+        </a>
     </nav>
     <main>
         <div class="card">

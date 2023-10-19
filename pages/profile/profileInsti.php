@@ -9,7 +9,7 @@ session_start();
     <link rel="stylesheet" href="../../css/main.css">
     <link rel="stylesheet" href="../../css/profileAgro.css">
 
-    <title>Document</title>
+    <title>AgroFam+</title>
 </head>
 <body>
     <nav>
@@ -21,7 +21,7 @@ session_start();
             <h1>Agrofam+</h1>
             <div class="foto"> <img src="../../storage/profilePictures/insti/<?php echo $_SESSION['user'][1]?>.jpg" alt=""></div>
             <div class="user">
-                <span class="nome"><b>agrofam</b> user</span>
+                <span class="nome"><b>agricultor</b> user</span>
                 <span class="detalhes">Eunápolis, Bahia, instituição</span>
             </div>
             <div class="acoes">

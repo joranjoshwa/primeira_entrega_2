@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/main.css?version=3">
+    <link rel="stylesheet" href="../../css/main.css?version=6">
     <title>AgroFam+</title>
 </head>
 <body>
     <main>
+    <nav>
+        <span><a href="../../index.php" id="index"><img src="../../img/agrofam.svg"></a></span>
+    </nav>
         <div class="card">
             <h1>agricultor</h1>
             <h2>blalalalal</h2>
@@ -30,11 +33,11 @@
                     <label for="profilePic"> Foto de Perfil</label>
                     <input type="file" name="profilePic" accept=".jpg" required>
                     <p><span>atenção</span>, essa plataforma é de uso exclusivo a agricultores familiares, caso não se enquadre, não prossiga, é totalmente proibido inscrever instituições sem autorização.</p>
+                    <input type="hidden" name="tela" value="registrar">
+                    <input type="hidden" name="tipo" value="agro">
+                    <input type="submit" value="enviar">
                 </div>
 
-                <input type="hidden" name="tela" value="registrar">
-                <input type="hidden" name="tipo" value="agro">
-                <input type="submit" value="entrar">
             </form>
         </div>
     </main>

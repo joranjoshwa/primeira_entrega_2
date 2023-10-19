@@ -2,7 +2,7 @@ main .card{
     transform: translateY(-50%);
     margin: auto;
     aspect-ratio: 1/1;
-    height: 40%;
+    height: 50%;
     margin-top: 50vh;
     padding: 2rem;
     display: flex;
@@ -10,6 +10,8 @@ main .card{
     border-radius: 10px;
     justify-content: space-evenly;
     background-color: white;
+    box-shadow: 10px 10px 0px rgb(111, 111, 111);
+    border: 1px solid rgb(111, 111, 111);
 }
 
 main div a{
@@ -23,6 +25,7 @@ main div a{
     padding: .3rem;
     border-radius: 10px;
     border: 1px solid var(--cor_destaque);
+    margin: 1rem 0;
 }
 
 main div a[name="agro"]{

@@ -1,6 +1,4 @@
-.card{
-    max-height: 100vh;
-}
+
 
 .doc{
     background-color: #ddd;
@@ -16,8 +14,8 @@ section :nth-child(odd){
 }
 
 section{
-    margin-top: 5rem;
-    height: 30rem;
+    margin-top: 1rem;
+    height: 100%;
     overflow: auto;
 }
 

@@ -8,17 +8,22 @@ main{
 form{
     display: flex;
     flex-direction: row;
-    align-items: baseline;
+    align-items: center;
     justify-content: space-between;
 }
 
-form input[type="submit"], select{
+form[action="./telaPesquisaEditais.php"]{
+    margin-bottom: 2rem;
+}
+
+form input[type="submit"], form select{
+    margin: unset;
     margin-left: 1rem;
 }
 
 .editais form{
     width: 100%;
-    padding: 0;
+    padding: unset;
 }
 
 .editais input[type="submit"]{
