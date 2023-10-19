@@ -2,6 +2,11 @@
     include '../../php/conectorBD.php';
     session_start();
 
+    if (!isset($_SESSION['user']))
+    {
+      header("Location: ../../php/logout.php");  
+    }
+
     $editais = executarQuery('SELECT id, titulo, dataIni, dataFim FROM editais', $retorno=true);
 ?>
 

@@ -2,6 +2,11 @@
     include '../../php/conectorBD.php';
     session_start();
 
+    if (!isset($_SESSION['user']))
+    {
+      header("Location: ../../php/logout.php");  
+    }
+
     $result=executarQuery('SELECT nome, subtipos_id FROM produtos ORDER BY subtipos_id', $retorno=true);
     foreach ($result as $chave => $valor) 
     {

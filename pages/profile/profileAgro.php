@@ -2,6 +2,11 @@
     session_start();
     include '../../php/conectorBD.php';
 
+    if (!isset($_SESSION['user']))
+    {
+      header("Location: ../../php/logout.php");  
+    }
+
     $result = executarQuery("SELECT agricultores.nome as agro, localidades.nome as lugar FROM agricultores, localidades WHERE agricultores.localidades_id = localidades.id AND agricultores.id ='".$_SESSION['user'][1]."';",$retorno=true)[0];
 ?>
 <!DOCTYPE html>
@@ -26,9 +31,10 @@
             <span class="detalhes"><?php echo $result['lugar'];?>, Bahia</span>
         </div>
         <div class="acoes">
-            <p><img src="../../img/editarPerfil.svg" alt="icone editar perfil"><span><a href="../telasAgricultor/editarPerfil.php">Editar perfil</a></span></p>
-            <p><img src="../../img/meusDocumentos.svg" alt="icone meus documentos"><span><a href="../telasAgricultor/enviarDocs.php">Meus documentos</a></span></p>
-            <p><img src="../../img/minhasVendas.svg" alt="icone minhas vendas"><span><a href="../telasAgricultor/telaOfertas.php">Minhas vendas</a></span></p>
+            <p><img src="../../img/editarPerfil.svg" alt="editar perfil"><span><a href="../telasAgricultor/editarPerfil.php">Editar perfil</a></span></p>
+            <p><img src="../../img/meusDocumentos.svg" alt="meus documentos"><span><a href="../telasAgricultor/enviarDocs.php">Meus documentos</a></span></p>
+            <p><img src="../../img/minhasVendas.svg" alt="minhas vendas"><span><a href="../telasAgricultor/telaOfertas.php">Minhas vendas</a></span></p>
+            <p id="sair"><img src="../../img/logout_black_24dp.svg" alt="sair"><span><a href="../../php/logout.php">Sair</a></span></p>
         </div>
     </main>
     

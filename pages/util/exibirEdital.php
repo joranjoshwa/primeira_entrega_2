@@ -1,5 +1,12 @@
 <?php
     include '../../php/util.php';
+    sessioon_start();
+    
+    if (!isset($_SESSION['user']))
+    {
+      header("Location: ../../php/logout.php");  
+    }
+
     extract($_POST);
     $edital = executarQuery("SELECT * FROM editais WHERE id =$id",$retorno=true)[0];
     extract($edital);
@@ -35,13 +42,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="../../css/main.css">
-    <link rel="stylesheet" href="../../css/exibirEdital.css">
+    <link rel="stylesheet" href="../../css/exibirEdital.css?v=2">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AgroFam+</title>
 </head>
 
 <body>
-    <section>
+    <nav>
+        <span><a id="index" href="../../index.php"><img src="../../img/agrofam.svg"></a></span>
+        <a href="../../pages/profile/profile<?php session_start(); echo $_SESSION['user'][2]?>.php"><img src="../../storage/profilePictures/<?php echo $_SESSION['user'][2]."/".$_SESSION['user'][1]?>.jpg"></a>
+    </nav>
+    <section> 
         <h1><?php echo $titulo?></h1>
         <div><i><?php echo $instituicao?></i></div>
 

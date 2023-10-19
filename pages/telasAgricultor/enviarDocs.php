@@ -1,5 +1,11 @@
 <?php
     session_start();
+
+    if (!isset($_SESSION['user']))
+    {
+      header("Location: ../../php/logout.php");  
+    }
+    
     include '../../php/conectorBD.php';
     $arquivos = executarQuery("SELECT * FROM arquivos WHERE agricultores_id = '".$_SESSION['user'][1]."';", $retorno=true);
 ?>

@@ -28,6 +28,15 @@ div span{
     margin: 1rem 0;
 }
 
+.editais form{
+    margin: unset;
+}
+
+nav span{
+
+    margin: unset;
+}
+
 label{
     border-bottom: dashed black 1px;
 }

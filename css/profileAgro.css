@@ -3,6 +3,10 @@ main {
     height: fit-content;
 }
 
+body{
+    overflow: hidden;
+}
+
 .foto{
     width: 10%;
     aspect-ratio: 1/1;
@@ -58,4 +62,13 @@ main {
 a{
     text-decoration: none;
     color: inherit;
+}
+
+#sair{
+    color:#f17070;
+    font-weight: bold;
+}
+
+#sair img{
+    filter: invert(74%) sepia(20%) saturate(6456%) hue-rotate(313deg) brightness(95%) contrast(99%);
 }

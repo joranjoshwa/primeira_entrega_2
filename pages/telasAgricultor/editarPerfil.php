@@ -1,5 +1,11 @@
 <?php
     session_start();
+
+    if (!isset($_SESSION['user']))
+    {
+      header("Location: ../../php/logout.php");  
+    }
+    
     include '../../php/util.php';
 
     $dados = executarQuery('SELECT `nome`, `CAF`, `CPF`, `senha`, `telefone`, `email`, `localidades_id` FROM agricultores WHERE id = "'.$_SESSION['user'][1].'";', $retorno=true)[0];

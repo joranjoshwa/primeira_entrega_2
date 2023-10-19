@@ -1,4 +1,10 @@
 <?php
+    session_start();
+    if (!isset($_SESSION['user']))
+    {
+      header("Location: ../../php/logout.php");  
+    }
+    
     include '../../php/util.php';
 
     $result = executarQuery('SELECT nome FROM localidades', $retorno=true);
@@ -71,7 +77,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/main.css?v=2">
-    <link rel="stylesheet" href="../../css/telaPesquisa.css?v=1">
+    <link rel="stylesheet" href="../../css/telaPesquisa.css?v=2">
 
     <title>AgroFam+</title>
 </head>

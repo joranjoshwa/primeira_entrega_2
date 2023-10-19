@@ -1,5 +1,11 @@
 <pre>
 <?php
+    session_start();
+    if (!isset($_SESSION['user']))
+    {
+      header("Location: ../../php/logout.php");  
+    }
+    
     include '../../php/conectorBD.php';
 
     $result = executarQuery('SELECT nome FROM localidades', $retorno=true);

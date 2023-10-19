@@ -2,6 +2,11 @@
     session_start();
     include '../../php/util.php';
 
+    if (!isset($_SESSION['user']))
+    {
+      header("Location: ../../php/logout.php");  
+    }
+
     $dados = executarQuery('SELECT `nome`, `CNPJ`, `senha`, `email`, `localidades_id` FROM instituicoes WHERE id = "'.$_SESSION['user'][1].'";', $retorno=true)[0];
     $dados['localidade'] = converterChave($dados['localidades_id'], 'localidades')[0]['nome'];
     

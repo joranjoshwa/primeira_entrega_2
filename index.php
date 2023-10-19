@@ -90,11 +90,11 @@
             $stylesheet = 'home';
             if ($_SESSION['user'][2] == 'agro')
             {
-                $page = $page.'agricultor.html';
+                $page = $page.'agricultor';
             }
             else
             {
-                $page = $page.'instituicao.html';
+                $page = $page.'instituicao';
             }
         }
         else

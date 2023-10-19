@@ -25,10 +25,12 @@ form input[type="submit"], form select{
 .editais form{
     width: 100%;
     padding: unset;
+    margin: unset;
 }
 
 .editais input[type="submit"]{
     width: fit-content;
+    margin: auto;
 }
 
 .editais{
