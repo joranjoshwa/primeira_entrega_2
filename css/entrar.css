@@ -17,6 +17,15 @@ a{
     margin: auto;
 }
 
+h3{
+    position: absolute;
+    top:0;
+}
+
+main{
+    height: 89%;
+}
+
 main .card {
     transform: translateY(-70%);
 }

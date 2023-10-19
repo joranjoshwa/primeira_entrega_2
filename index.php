@@ -83,8 +83,25 @@
     }
     else
     {
-        $page = 'login/entrar';
-        $stylesheet = 'entrar';
+        //não verificado
+        if (isset($_SESSION['user']))
+        {
+            $page = 'home/';
+            $stylesheet = 'home';
+            if ($_SESSION['user'][2] == 'agro')
+            {
+                $page = $page.'agricultor.html';
+            }
+            else
+            {
+                $page = $page.'instituicao.html';
+            }
+        }
+        else
+        {
+            $page = 'login/entrar';
+            $stylesheet = 'entrar';
+        }
     }
     
 ?>
