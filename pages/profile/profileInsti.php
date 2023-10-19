@@ -1,5 +1,7 @@
 <?php
-session_start();
+    session_start();
+    include '../../php/conectorBD.php';
+    $result = executarQuery("SELECT instituicoes.nome as insti, localidades.nome as lugar FROM instituicoes, localidades WHERE instituicoes.localidades_id = localidades.id AND instituicoes.id ='".$_SESSION['user'][1]."';",$retorno=true)[0];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,16 +15,15 @@ session_start();
 </head>
 <body>
     <nav>
-        <span><a href="../../index.php">AgroFam+</a></span>
-        <a href="pages/profile/profileInsti.html"><img src="../../storage/profilePictures/insti/<?php echo $_SESSION['user'][1]?>.jpg"></a>
+        <span><a id='index' href="../../index.php"><img src="../../img/agrofam.svg" alt=""></a></span>
+        <a href="../../pages/profile/profileInsti.php"><img src="../../storage/profilePictures/insti/<?php echo $_SESSION['user'][1]?>.jpg"></a>
     </nav>
     <main>
         <div class="card">
-            <h1>Agrofam+</h1>
             <div class="foto"> <img src="../../storage/profilePictures/insti/<?php echo $_SESSION['user'][1]?>.jpg" alt=""></div>
             <div class="user">
-                <span class="nome"><b>agricultor</b> user</span>
-                <span class="detalhes">Eunápolis, Bahia, instituição</span>
+                <span class="nome"><b>instituição</b> <?php echo $result['insti'];?></span>
+                <span class="detalhes"><?php echo $result['lugar'];?>, Bahia</span>
             </div>
             <div class="acoes">
                 <p><img src="../../img/editarPerfil.svg" alt=""><span><a href="../telasInstituicao/editarPerfil.php">Editar perfil</a></span></p>

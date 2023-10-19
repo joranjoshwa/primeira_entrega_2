@@ -18,6 +18,10 @@
     <title>AgroFam+</title>
 </head>
 <body> 
+    <nav>
+        <span><a id='index' href="../../index.php"><img src="../../img/agrofam.svg" alt=""></a></span>
+        <a href="../../pages/profile/profileInsti.php"><img src="../../storage/profilePictures/insti/<?php echo $_SESSION['user'][1]?>.jpg"></a>
+    </nav>
     <main>
         <div class="card">
             <h1>Atualize seu cadastro</h1>

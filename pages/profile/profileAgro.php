@@ -1,5 +1,8 @@
 <?php
     session_start();
+    include '../../php/conectorBD.php';
+
+    $result = executarQuery("SELECT agricultores.nome as agro, localidades.nome as lugar FROM agricultores, localidades WHERE agricultores.localidades_id = localidades.id AND agricultores.id ='".$_SESSION['user'][1]."';",$retorno=true)[0];
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -19,8 +22,8 @@
     <main>
         <div class="foto"><img src="../../storage/profilePictures/agro/<?php echo $_SESSION['user'][1]?>.jpg" alt=""></div>
         <div class="user">
-            <span class="nome"><b>agrofam</b> user</span>
-            <span class="detalhes">Eunápolis, Bahia, agricultor</span>
+            <span class="nome"><b>agricultor</b> <?php echo $result['agro'];?></span>
+            <span class="detalhes"><?php echo $result['lugar'];?>, Bahia</span>
         </div>
         <div class="acoes">
             <p><img src="../../img/editarPerfil.svg" alt="icone editar perfil"><span><a href="../telasAgricultor/editarPerfil.php">Editar perfil</a></span></p>

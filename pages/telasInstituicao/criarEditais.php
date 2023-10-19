@@ -1,6 +1,6 @@
 <?php
-include '../../php/conectorBD.php';
 session_start();
+include '../../php/conectorBD.php';
 
 $result = executarQuery('SELECT nome, subtipos_id FROM produtos ORDER BY subtipos_id', $retorno=true);
 foreach ($result as $chave => $valor) 
@@ -32,6 +32,10 @@ foreach ($result as $indice => $documento)
 </head>
 
 <body>
+    <nav>
+        <span><a id='index' href="../../index.php"><img src="../../img/agrofam.svg"></a></span>
+        <a href="../../pages/profile/profileInsti.php"><img src="../../storage/profilePictures/insti/<?php echo $_SESSION['user'][1]?>.jpg"></a>
+    </nav>
     <main>
         <div class="card">
             <h1>Adicionar edital</h1>

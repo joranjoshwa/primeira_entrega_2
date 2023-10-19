@@ -41,6 +41,15 @@ span label {
     align-items: center;
 }
 
+body{
+    overflow: hidden;
+}
+
+main{
+    margin-top: 2rem;
+    padding-bottom: 2rem;
+}
+
 main .card{
     min-height: none;
     height: 100%;
