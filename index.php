@@ -12,18 +12,18 @@
                 {
                     $_SESSION['erro'] = "Algo deu errado no seu login"; 
 
-                    $page = 'login/entrar';
+                    $page = 'login/entrar.html';
                     $stylesheet = 'entrar';
                 }
                 else
                 {
                     if (strlen($_POST['id'])==11)
                     {
-                        $tipo = 'agricultor';
+                        $tipo = 'agricultor.html';
                     }
                     else
                     {
-                        $tipo = 'instituicao';
+                        $tipo = 'instituicao.html';
                     }
                     $page = "home/$tipo";
                     $stylesheet = 'home'; 
@@ -35,7 +35,7 @@
                 {
                     $_SESSION['erro'] = 'Seu cadastro falhou!';
                 }
-                $page = 'login/entrar';
+                $page = 'login/entrar.html';
                 $stylesheet = 'entrar';
                 break;
 
@@ -54,11 +54,10 @@
 
                 if(!atualizar($_POST, $_FILES))
                 {
-                    echo 'função atualizar';
                     $_SESSION['erro'] = 'Houve algo de errado com o(s) campo(s) atualizados';
                     header("Location: pages/$acao/editarPerfil.php");
                 }
-                header("Location: pages/profile/$local.html");
+                header("Location: pages/profile/$local.php");
 
                 break;
 
@@ -90,16 +89,16 @@
             $stylesheet = 'home';
             if ($_SESSION['user'][2] == 'agro')
             {
-                $page = $page.'agricultor';
+                $page = $page.'agricultor.html';
             }
             else
             {
-                $page = $page.'instituicao';
+                $page = $page.'instituicao.html';
             }
         }
         else
         {
-            $page = 'login/entrar';
+            $page = 'login/entrar.html';
             $stylesheet = 'entrar';
         }
     }
@@ -117,6 +116,6 @@
     <title>AgroFam+</title>
 </head>
 <?php
-    include "./pages/".$page.".html";
+    include "./pages/".$page;
 ?>
 </html>

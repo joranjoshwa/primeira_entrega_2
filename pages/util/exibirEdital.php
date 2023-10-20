@@ -1,6 +1,6 @@
 <?php
     include '../../php/util.php';
-    sessioon_start();
+    session_start();
     
     if (!isset($_SESSION['user']))
     {
@@ -50,7 +50,7 @@
 <body>
     <nav>
         <span><a id="index" href="../../index.php"><img src="../../img/agrofam.svg"></a></span>
-        <a href="../../pages/profile/profile<?php session_start(); echo $_SESSION['user'][2]?>.php"><img src="../../storage/profilePictures/<?php echo $_SESSION['user'][2]."/".$_SESSION['user'][1]?>.jpg"></a>
+        <a href="../../pages/profile/profile<?php echo $_SESSION['user'][2]?>.php"><img src="../../storage/profilePictures/<?php echo $_SESSION['user'][2]."/".$_SESSION['user'][1]?>.jpg"></a>
     </nav>
     <section> 
         <h1><?php echo $titulo?></h1>

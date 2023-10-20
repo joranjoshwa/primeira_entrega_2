@@ -107,6 +107,10 @@ h2{
 
 .erroMSG{
     background-color: rgb(206, 121, 121);
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
     font-size: 1rem;
     width: 100%;
     color: var(--cor_letra);
@@ -168,3 +172,70 @@ label[for="profilePic"]{
     border-bottom: dashed black 1px;
 }
 
+.error{
+    z-index: 4;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.837);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.errorMSG{
+    border-radius: 50px;
+    margin: 30%;
+    position: relative;
+    padding: 2rem 2rem;
+    width: fit-content;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(159, 63, 63);
+    box-shadow: 10px 10px 0px;
+}
+
+.errorMSG p{
+    overflow: auto;
+    height: fit-content;
+    background-color: unset;
+}
+
+.errorMSG span.close{
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    background-color: white;
+    height: 2rem;
+    aspect-ratio: 1/1;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.close span{
+    background-color: rgb(63, 63, 63);
+    height: .1rem;
+    width: 1rem;
+    position: absolute;
+    display: block;
+}
+
+.close :nth-child(1){
+    transform: rotateZ(45deg);
+}
+
+.close :nth-child(2){
+    transform: rotateZ(-45deg);
+}
+
+.fechar{
+    display: none;
+}

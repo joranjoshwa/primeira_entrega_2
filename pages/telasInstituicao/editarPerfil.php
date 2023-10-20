@@ -27,10 +27,25 @@
         <span><a id='index' href="../../index.php"><img src="../../img/agrofam.svg" alt=""></a></span>
         <a href="../../pages/profile/profileInsti.php"><img src="../../storage/profilePictures/insti/<?php echo $_SESSION['user'][1]?>.jpg"></a>
     </nav>
+    <?php
+    if (isset($_SESSION['erro']))
+    {
+        echo '<div class="error">
+        <div class="errorMSG">
+        <span class="close" onclick="fechar()">
+        <span></span>
+        <span></span>
+        </span>
+        <p>'.$_SESSION["erro"].'</p>
+        </div>
+        </div>';
+        unset($_SESSION['erro']);
+    }
+    ?>
     <main>
         <div class="card">
             <h1>Atualize seu cadastro</h1>
-            <form action="../../index.php" method="post">
+            <form action="../../index.php" method="post" enctype="multipart/form-data">
                 <input type="text" name="nome" placeholder="Nome" value="<?php echo $nome?>" required>
                 <input type="text" name="senha" placeholder="Senha" value="<?php echo $senha?>" required>
                 <select name="localidade" required>
@@ -53,9 +68,8 @@
                 <input type="number" name="cnpj" placeholder="CNPJ" value="<?php echo $CNPJ?>" required>
                 <input type="email" name="email" placeholder="instituicao@agrofam.com" value="<?php echo $email?>" required>
                 
-                <input type="hidden" name="MAX_FILE_SIZE" value="500000">
                 <label for="profilePic"> Foto de Perfil</label>
-                <input type="file" name="profilePic" accept=".jpeg .jpg .png">
+                <input type="file" name="profilePic" accept=".jpg">
 
                 <input type="hidden" name="tela" value="atualizar">
                 <input type="hidden" name="tipo" value="insti"><!--será removido coma criação da sessão de logado-->

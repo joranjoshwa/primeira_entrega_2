@@ -13,6 +13,7 @@
 
     $result = executarQuery('SELECT nome From documentos',$retorno=true);
     print_r($result);
+    echo phpversion();
     ?>
 </pre>
 </body>
