@@ -13,3 +13,4 @@
 -máscara para o input de telefone
 -mudar a o link do index de login para home quando logado
 -criar um @screen para quando menor que +- 675px de altura 
+-colocar um svg de fundo na home

@@ -51,7 +51,13 @@
                 <select name="localidade" required>
                     <option disabled>Escolha uma opção</option>
                     <?php
-                        $opcoes = ['Eunápolis', 'Salto da Divisa', 'Porto Seguro'];
+                        $localidades = executarQuery("SELECT nome FROM localidades;", $retorno=true);
+                        $opcoes = [];
+                        foreach ($localidades as $indice => $linha) 
+                        {
+                            array_push($opcoes, $linha['nome']);
+                        }
+                        
                         foreach ($opcoes as $indice => $valor) 
                         {
                             if ($valor == $localidade)

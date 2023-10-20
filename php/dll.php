@@ -232,4 +232,17 @@
             '$editaisID')");
         }
     }
+
+    function getLocalidades()
+    {
+        include 'conectorBD.php';
+
+        $localidades = executarQuery("SELECT nome FROM localidades;", $retorno=true);
+        $locais = [];
+        foreach ($localidades as $indice => $linha) 
+        {
+            array_push($locais, $linha['nome']);
+        }
+        return $locais;
+    }
 ?>

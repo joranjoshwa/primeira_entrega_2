@@ -7,7 +7,9 @@
       header("Location: ../../php/logout.php");  
     }
 
-    $editais = executarQuery('SELECT id, titulo, dataIni, dataFim FROM editais', $retorno=true);
+
+
+    $editais = executarQuery('SELECT id, titulo, dataIni, dataFim FROM editais WHERE instituicoes_id ='.$_SESSION['user'][1], $retorno=true);
 ?>
 
 <!DOCTYPE html>

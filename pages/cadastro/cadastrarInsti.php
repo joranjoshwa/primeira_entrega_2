@@ -24,9 +24,15 @@
                     <input type="email" name="email" placeholder="instituicao@agrofam.com" required>
                     <select name="localidade" required>
                         <option disabled selected>Escolha uma opção</option>
-                        <option value="Eunápolis">Eunápolis</option>
-                        <option value="Salto da Divisa">Salto da Divisa</option>
-                        <option value="Porto Seguro">Porto Seguro</option>
+                        <?php
+                            include '../../php/dll.php';
+
+                            $localidades = getLocalidades();
+                            foreach ($localidades as $indice => $nome) 
+                            {
+                                echo "<option value='$nome'>$nome</option>";
+                            }
+                        ?>
                     </select>
 
                     <label for="profilePic"> Foto de Perfil</label>
