@@ -1,16 +1,16 @@
--criar validação do formato (quantidade de caracteres) no cadastro do agricultor e instituição
+criar validação do formato (quantidade de caracteres) no cadastro do agricultor e instituição
 -no momento a parte de mandar email no cadastro da instituição irá ficar suspensa
 -talvez terá uma máscara nos inputs
 -verificar como arquivos privados são gravados em sites de empresas grandes para explicar
--colocar verificação de sessão em todas as páginas não por no index.php
--if(!atualizar) não funciona
--toda vez que abrir um documento fazer uma autenticação
+colocar verificação de sessão em todas as páginas não por no index.php
+if(!atualizar) não funciona
+toda vez que abrir um documento fazer uma autenticação
 -aplicações CRUD para moderadores
--fazer a função de logout
+fazer a função de logout
 -ideias de textos informativos para colocar na home do agricultor
--barra de navegação
--acomodar a edição de foto de perfil
+barra de navegação
+acomodar a edição de foto de perfil
 -máscara para o input de telefone
--mudar a o link do index de login para home quando logado
+mudar a o link do index de login para home quando logado
 -criar um @screen para quando menor que +- 675px de altura 
--colocar um svg de fundo na home
+colocar um svg de fundo na home

@@ -239,3 +239,9 @@ div.errorMSG{
 .fechar{
     display: none;
 }
+
+@media (max-height: 595px){
+    main{
+        overflow: auto;
+    }
+}

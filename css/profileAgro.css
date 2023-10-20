@@ -72,3 +72,9 @@ a{
 #sair img{
     filter: invert(74%) sepia(20%) saturate(6456%) hue-rotate(313deg) brightness(95%) contrast(99%);
 }
+
+@media (max-height: 595px){
+    body{
+        overflow: auto;
+    }
+}
