@@ -7,7 +7,7 @@
       header("Location: ../../php/logout.php");  
     }
 
-    $result = executarQuery("SELECT agricultores.nome as agro, localidades.nome as lugar FROM agricultores, localidades WHERE agricultores.localidades_id = localidades.id AND agricultores.id ='".$_SESSION['user'][1]."';",$retorno=true)[0];
+    $result = executarQuery("SELECT agricultores.nome as agro, localidades.nome as lugar, uf.nome as estado FROM agricultores, localidades, uf WHERE agricultores.localidades_id = localidades.id AND localidades.uf_id = uf.id AND agricultores.id ='".$_SESSION['user'][1]."';",$retorno=true)[0];
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -22,13 +22,13 @@
 <body> 
     <nav>
         <span><a href="../../index.php" id="index"><img src="../../img/agrofam.svg"></a></span>
-        <a href="pages/profile/profileInsti.html"><img src="../../storage/profilePictures/agro/<?php echo $_SESSION['user'][1]?>.jpg"></a>
+        <a href="profileAgro.php"><img src="../../storage/profilePictures/agro/<?php echo $_SESSION['user'][1]?>.jpg"></a>
     </nav>
     <main>
         <div class="foto"><img src="../../storage/profilePictures/agro/<?php echo $_SESSION['user'][1]?>.jpg" alt=""></div>
         <div class="user">
             <span class="nome"><b>agricultor</b> <?php echo $result['agro'];?></span>
-            <span class="detalhes"><?php echo $result['lugar'];?>, Bahia</span>
+            <span class="detalhes"><?php echo $result['lugar'].", ".$result['estado'];?></span>
         </div>
         <div class="acoes">
             <p><img src="../../img/editarPerfil.svg" alt="editar perfil"><span><a href="../telasAgricultor/editarPerfil.php">Editar perfil</a></span></p>

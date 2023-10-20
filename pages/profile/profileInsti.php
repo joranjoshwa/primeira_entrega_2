@@ -7,7 +7,7 @@
     }
 
     include '../../php/conectorBD.php';
-    $result = executarQuery("SELECT instituicoes.nome as insti, localidades.nome as lugar FROM instituicoes, localidades WHERE instituicoes.localidades_id = localidades.id AND instituicoes.id ='".$_SESSION['user'][1]."';",$retorno=true)[0];
+    $result = executarQuery("SELECT instituicoes.nome as insti, localidades.nome as lugar, uf.nome as estado FROM instituicoes, localidades, uf WHERE instituicoes.localidades_id = localidades.id AND localidades.uf_id = uf.id AND instituicoes.id ='".$_SESSION['user'][1]."';",$retorno=true)[0];
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -29,7 +29,7 @@
             <div class="foto"> <img src="../../storage/profilePictures/insti/<?php echo $_SESSION['user'][1]?>.jpg" alt=""></div>
             <div class="user">
                 <span class="nome"><b>instituição</b> <?php echo $result['insti'];?></span>
-                <span class="detalhes"><?php echo $result['lugar'];?>, Bahia</span>
+                <span class="detalhes"><?php echo $result['lugar'].", ".$result['estado'];?></span>
             </div>
             <div class="acoes">
                 <p><img src="../../img/editarPerfil.svg" alt=""><span><a href="../telasInstituicao/editarPerfil.php">Editar perfil</a></span></p>

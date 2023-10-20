@@ -2,15 +2,20 @@
     align-items: center;
     justify-content: center;
     height: fit-content;
+    
 }
 
 main{
     height: 80%;
 }
 
+main .card{
+    background-color: unset;
+}
+
 .opcao{
     margin: auto;
-    background-image: linear-gradient(to right, rgb(126, 81, 157), rgba(127, 81, 157, 0.25));
+    background-image: linear-gradient(to right, rgb(126, 81, 157), rgba(127, 81, 157, 0.711));
     height: 5rem;
     display: flex;
     align-items: center;
@@ -34,7 +39,7 @@ main{
     width: 40%;
     height: 100%;
     position: absolute;
-    z-index: -1;
+    z-index: 2;
     right: 0;
 }
 .img img{
@@ -52,9 +57,32 @@ a{
 }
 
 a[href="pages/util/telaPesquisaOfertas.php"] .opcao{
-    background-image: linear-gradient(to right, var(--cor_destaque), rgba(50, 205, 50, 0.25));
+    background-image: linear-gradient(to right, var(--cor_destaque), rgba(50, 205, 50, 0.378));
 }
 
 a[href="pages/util/telaPesquisaOfertas.php"] .opcao img{
     transform: rotateY(180deg);
+}
+
+.background{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgb(255, 255, 255);
+    z-index: -1;
+}
+
+.background img{
+    transform: translateY(50%);
+    object-fit: cover;
+    position: absolute;
+    height: 100%;
+    bottom: 0;
+}
+
+.background :nth-child(1){
+    transform: unset;
+    transform: translateY(50%);
 }
