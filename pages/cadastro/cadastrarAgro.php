@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/main.css?version=6">
+    <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
     <title>AgroFam+</title>
 </head>
 <body>
@@ -13,7 +14,7 @@
     </nav>
         <div class="card">
             <h1>agricultor</h1>
-            <h2>blalalalal</h2>
+            <h2>tela de cadastro do agricultor</h2>
             <form action="../../index.php" method="post" enctype="multipart/form-data" >
                 <div class="overflow">
                     <input type="text" name="nome" placeholder="Nome" required>

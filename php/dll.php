@@ -3,15 +3,17 @@
     function login($dados)
     {
         include 'conectorBD.php';
-        //session_start();
         extract($dados);
 
         if (strlen($id)==11)
         {
-            if(!$queryResult=executarQuery("SELECT senha FROM agricultores WHERE CPF = '$id'", $retorno=true)[0]['senha']) return false;
+            $queryResult=executarQuery("SELECT senha FROM agricultores WHERE CPF = '$id'", $retorno=true);
+            if ($queryResult != []) $queryResult = $queryResult[0]['senha'];
+            if(!$queryResult) return false;
+
             if($queryResult == "".$senha)
             {
-                $chave = executarQuery("SELECT id FROM agricultores WHERE CPF = $id;", $retorno=true)[0]['id'];//<-isso
+                $chave = executarQuery("SELECT id FROM agricultores WHERE CPF = $id;", $retorno=true)[0]['id'];
                 $_SESSION['user'] = [true, $chave, 'agro']; 
                 return true;
             }
@@ -20,11 +22,13 @@
         
         if (strlen($id)==14)
         {
-            if(!$queryResult=executarQuery("SELECT senha from instituicoes WHERE CNPJ = '$id'", $retorno=true)[0]['senha']) return false;
+            $queryResult=executarQuery("SELECT senha from instituicoes WHERE CNPJ = '$id'", $retorno=true);
+            if ($queryResult != []) $queryResult = $queryResult[0]['senha'];
+            if(!$queryResult) return false;
             
             if($queryResult == "".$senha) 
             {
-                $chave = executarQuery("SELECT id FROM instituicoes WHERE CNPJ = $id;", $retorno=true)[0]['id'];//<-isso
+                $chave = executarQuery("SELECT id FROM instituicoes WHERE CNPJ = $id;", $retorno=true)[0]['id'];
                 $_SESSION['user'] = [true, $chave, 'insti']; 
                 return true;
             }
@@ -78,7 +82,7 @@
         {
             $ext = pathinfo($img['profilePic']['name'], PATHINFO_EXTENSION);
             //tirar esse dashboard
-            $fileName = "C:/xampp/htdocs/dashboard/primeira_entrega_2/storage/profilePictures/$tipo/$userID.$ext";
+            $fileName = "C:/xampp/htdocs/primeira_entrega_2/storage/profilePictures/$tipo/$userID.$ext";
             if(!move_uploaded_file($img['profilePic']['tmp_name'], $fileName))
             {
                 echo 'erro no envio dos arquivos';
@@ -137,7 +141,7 @@
             $ext = pathinfo($img['profilePic']['name'], PATHINFO_EXTENSION);
             $userID = $_SESSION['user'][1];
             //tirar esse dashboard
-            $fileName = "C:/xampp/htdocs/dashboard/primeira_entrega_2/storage/profilePictures/$tipo/$userID.$ext";
+            $fileName = "C:/xampp/htdocs/primeira_entrega_2/storage/profilePictures/$tipo/$userID.$ext";
             unlink($fileName);
             if(!move_uploaded_file($img['profilePic']['tmp_name'], $fileName))
             {

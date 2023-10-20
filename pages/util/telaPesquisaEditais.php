@@ -78,6 +78,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/main.css?v=2">
     <link rel="stylesheet" href="../../css/telaPesquisa.css?v=2">
+    <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
 
     <title>AgroFam+</title>
 </head>

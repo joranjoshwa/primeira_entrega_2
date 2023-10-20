@@ -33,6 +33,7 @@ foreach ($result as $indice => $documento)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/main.css">
     <link rel="stylesheet" href="../../css/criarEditais.css?v=8">
+    <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
     <title>AgroFam+</title>
 </head>
 
