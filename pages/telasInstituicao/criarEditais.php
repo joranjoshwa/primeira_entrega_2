@@ -50,7 +50,7 @@ foreach ($result as $indice => $documento)
                 <label for="nome">Insira o título do edital:</label>
                 <input type="text" name="nome" id="nome" placeholder="Título" required>
 
-                <label for="dataIni">Data do início ddo período de inscrição:</label>
+                <label for="dataIni">Data do início do período de inscrição:</label>
                 <input type="date" name="dataIni" id="dataIni" required>
 
                 <label for="dataFim">Data do fim do período de inscrição:</label>

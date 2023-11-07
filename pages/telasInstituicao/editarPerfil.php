@@ -48,7 +48,7 @@
             <h1>Atualize seu cadastro</h1>
             <form action="../../index.php" method="post" enctype="multipart/form-data">
                 <input type="text" name="nome" placeholder="Nome" value="<?php echo $nome?>" required>
-                <input type="text" name="senha" placeholder="Senha" value="<?php echo $senha?>" required>
+                <input type="password" name="senha" placeholder="Senha" value="<?php echo $senha?>" required>
                 <select name="localidade" required>
                     <option disabled>Escolha uma opção</option>
                     <?php
@@ -80,7 +80,7 @@
 
                 <input type="hidden" name="tela" value="atualizar">
                 <input type="hidden" name="tipo" value="insti"><!--será removido coma criação da sessão de logado-->
-                <input type="submit" value="atualizar">
+                <input type="submit" value="Atualizar">
             </form>
         </div>
     </main>

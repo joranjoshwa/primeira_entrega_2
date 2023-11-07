@@ -8,6 +8,11 @@ a{
     width: 50%;
 }
 
+.cadastro-link:hover {
+    color: #58ed58;
+    text-decoration: underline;
+}
+
 .agrofam img{
     height: 8rem;
     object-fit: scale-down;

@@ -15,7 +15,7 @@
     <main>
         <div class="card">
             <h1>Instituição</h1>
-            <h2>tela de cadastro da instituição</h2>
+            <h2>Tela de cadastro da Instituição</h2>
             <form action="../../index.php" method="post" enctype="multipart/form-data" >
 
                 <div class="overflow">
@@ -24,7 +24,7 @@
                     <input type="text" name="cnpj" placeholder="CNPJ"  minlength="14" maxlength="14" pattern="[0-9]{14}" required>
                     <input type="email" name="email" placeholder="instituicao@agrofam.com" required>
                     <select name="localidade" required>
-                        <option disabled selected>Escolha uma opção</option>
+                        <option disabled selected>Escolha uma localidade:</option>
                         <?php
                             include '../../php/dll.php';
 
@@ -39,7 +39,7 @@
                     <label for="profilePic"> Foto de Perfil</label>
                     <input type="file" name="profilePic" accept=".jpg">
                     <!--<input type="text" name="localidade" placeholder="Localidade" required>-->
-                    <p><span>atenção</span>, Esta aba de cadastro é exclusiva para instituição. Não realize
+                    <p><span>atenção</span>: Esta aba de cadastro é exclusiva para instituição. Não realize
                     cadastros em nome de instituições sem autorização.</p>
                     
                     <input type="hidden" name="tela" value="registrar">

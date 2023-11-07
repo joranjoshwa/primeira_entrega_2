@@ -60,6 +60,8 @@
         <label for="link">Link para o edital</label>
         <a target="_blank" href="<?php echo $link?>">Clique aqui para visualizar o edital no site da instituição.</a>
 
+        <hr/>
+        
         <label for="descricao">Descrição:</label>
         <p id="descricao">
             <?php echo $descricao?>
@@ -75,7 +77,7 @@
                 echo "<span>- $documento</span>";
             }
             ?>
-        </div>
+        </div>        
 
         <label for="demandas">Demandas deste edital: </label>
         <div id="demandas">

@@ -39,4 +39,5 @@ nav a{
 
 label{
     border-bottom: dashed black 1px;
+    font-weight: bold;
 }

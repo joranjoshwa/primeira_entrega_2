@@ -87,6 +87,7 @@ form input[type = "submit"]{
     display: block;
     margin-top: 2rem;
     bottom: 0px;
+    text-transform: capitalize;
 }
 
 form p{
@@ -103,6 +104,13 @@ h2{
     font-weight: lighter;
     font-size: 1.3rem;
     text-align: center;
+}
+
+hr {
+    border: none;
+    margin: 3% 0;
+    border-top: 3px solid rgb(94, 91, 91);
+
 }
 
 .erroMSG{

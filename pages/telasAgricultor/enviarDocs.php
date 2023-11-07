@@ -27,14 +27,14 @@
     </nav>
     <main>
         <div class="card">
-            <h1>Documentos</h1>
+            <h1>Documentos pessoais</h1>
             <form action="../../index.php" method="post" enctype="multipart/form-data" >
                 <input type="text" name="nome" placeholder="Nome do documento">
                 <input type="hidden" name="MAX_FILE_SIZE" value="500000">
                 <input type="file" name="documento" accept=".pdf">
 
                 <input type="hidden" name="tela" value="documentos">
-                <input type="submit" value="concluído">
+                <input type="submit" value="Concluído">
             </form>
             
             <section>

@@ -51,7 +51,7 @@
                 
                 <form action="../../index.php" method="post" enctype="multipart/form-data">
                     <input type="text" name="nome" placeholder="Nome" value="<?php echo $nome?>" required>
-                    <input type="text" name="senha" placeholder="Senha" value="<?php echo $senha?>" required>
+                    <input type="password" name="senha" placeholder="Senha" value="<?php echo $senha?>" required>
                     <input type="number" name="cpf" placeholder="CPF" value="<?php echo $CPF?>" required>
                     <select name="localidade" required>
                         <option disabled>Escolha uma opção</option>
@@ -89,7 +89,7 @@
     
                     <input type="hidden" name="tela" value="atualizar">
                     <input type="hidden" name="tipo" value="agro">
-                    <input type="submit" value="atualizar">
+                    <input type="submit" value="Atualizar">
                 </form>
             </div>
         </div>

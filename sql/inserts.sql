@@ -11,11 +11,11 @@ VALUES
 
 insert into subtipos (nome)
 values
-('cereais'),
+('Cereais'),
 ('tuberculos'),
-('hortaliças'),
-('frutas'),
-('leguminosas'),
+('Hortaliças'),
+('Frutas'),
+('Leguminosas'),
 ('carnes'),
 ('ovo'),
 ('leite e derivados'),
@@ -23,20 +23,20 @@ values
 ('açúcares'),
 ('pães');
 
-call inserirProdutos("Abóbora", "leguminosas");
-call inserirProdutos("Aipim", "leguminosas");
-call inserirProdutos("Banana-da-terra", "frutas");
-call inserirProdutos("Banana-prata", "frutas");
-call inserirProdutos("Batata-doce", "leguminosas");
-call inserirProdutos("Beterraba", "leguminosas");
-call inserirProdutos("Cenoura", "leguminosas");
-call inserirProdutos("Chuchu", "leguminosas");
-call inserirProdutos("Alface", "hortaliças");
+call inserirProdutos("Abóbora", "Leguminosas");
+call inserirProdutos("Aipim", "Leguminosas");
+call inserirProdutos("Banana-da-terra", "Frutas");
+call inserirProdutos("Banana-prata", "Frutas");
+call inserirProdutos("Batata-doce", "Leguminosas");
+call inserirProdutos("Beterraba", "Leguminosas");
+call inserirProdutos("Cenoura", "Leguminosas");
+call inserirProdutos("Chuchu", "Leguminosas");
+call inserirProdutos("Alface", "Hortaliças");
 
 insert into documentos (nome) values
 ('CPF'),
 ('DAP'),
-('declaração de produção própria'),
+('Declaração de produção própria'),
 ('CAF'),
 ('CNPJ'),
 ('Declaração de produção da associação/cooperativa'),
