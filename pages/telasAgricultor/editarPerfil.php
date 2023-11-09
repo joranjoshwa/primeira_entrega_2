@@ -27,7 +27,7 @@
 <body> 
     <nav>
         <span><a href="../../index.php" id="index"><img src="../../img/agrofam.svg"></a></span>
-        <a href="../../pages/profile/profileAgro.php"><img src="../../storage/profilePictures/agro/<?php echo $_SESSION['user'][1]?>.jpg"></a>
+        <a href="../../pages/profile/profileAgro.php"><img src="../../storage/profilePictures/agro/<?php echo $_SESSION['user'][1]?>.jpg" alt=''></a>
     </nav>
     <?php
     if (isset($_SESSION['erro']))

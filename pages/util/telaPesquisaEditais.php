@@ -86,7 +86,7 @@
 <body>
     <nav>
         <span><a id="index" href="../../index.php"><img src="../../img/agrofam.svg"></a></span>
-        <a href="../../pages/profile/profile<?php echo $_SESSION['user'][2]?>.php"><img src="../../storage/profilePictures/<?php echo $_SESSION['user'][2]."/".$_SESSION['user'][1]?>.jpg"></a>
+        <a href="../../pages/profile/profile<?php echo $_SESSION['user'][2]?>.php"><img src="../../storage/profilePictures/<?php echo $_SESSION['user'][2]."/".$_SESSION['user'][1]?>.jpg" alt=''></a>
     </nav>
     <main>
         <form action="./telaPesquisaEditais.php" method="POST">

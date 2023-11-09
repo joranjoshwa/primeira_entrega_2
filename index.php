@@ -35,6 +35,10 @@
                 {
                     $_SESSION['erro'] = 'Seu cadastro falhou!';
                 }
+                else
+                {
+                    $_SESSION['sucesso'] = 'Seu cadastro foi concluido com sucesso';
+                }
                 $page = 'login/entrar.html';
                 $stylesheet = 'entrar';
                 break;

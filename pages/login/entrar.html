@@ -1,17 +1,28 @@
 <body>
     <?php
-    if (isset($_SESSION['erro']))
+    if (isset($_SESSION['erro']) || isset($_SESSION['sucesso']))
     {
-        echo '<div class="error">
-            <div class="errorMSG">
+        if (isset($_SESSION['sucesso']))
+        {
+            $msg = $_SESSION["sucesso"];
+            $classe = "sucesso errorMSG";
+            unset($_SESSION['sucesso']);
+        }
+        else
+        {
+            $msg = $_SESSION["erro"];
+            $classe = "errorMSG";
+            unset($_SESSION['erro']);
+        }
+        echo '<div class="overlap">
+            <div class="'.$classe.'">
                 <span class="close" onclick="fechar()">
                     <span></span>
                     <span></span>
                 </span>
-                <p>'.$_SESSION["erro"].'</p>
+                <p>'.$msg.'</p>
             </div>
         </div>';
-        unset($_SESSION['erro']);
     }
     ?>
     <nav>

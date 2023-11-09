@@ -151,6 +151,7 @@ nav a{
     aspect-ratio: 1/1;
     border-radius: 50px;
     box-shadow: 2px 2px 0 rgb(100, 100, 100);
+    background-color: rgb(58, 58, 58);
 }
 
 #index{
@@ -158,6 +159,7 @@ nav a{
     border-radius: unset;
     border: unset;
     box-shadow: unset;
+    background-color: unset;
 }
 
 nav a#index img{
@@ -180,7 +182,7 @@ label[for="profilePic"]{
     border-bottom: dashed black 1px;
 }
 
-.error{
+.overlap{
     z-index: 4;
     position: absolute;
     top: 0;
@@ -205,6 +207,10 @@ div.errorMSG{
     align-items: center;
     background-color: rgb(159, 63, 63);
     box-shadow: 10px 10px 0px;
+}
+
+div.sucesso{
+    background-color: limegreen;
 }
 
 .errorMSG p{

@@ -80,12 +80,16 @@
 
         if (isset($userID))
         {
+            if ($img['profilePic']['error'] != UPLOAD_ERR_OK)
+            {
+                return True;
+            }
             $ext = pathinfo($img['profilePic']['name'], PATHINFO_EXTENSION);
             //tirar esse dashboard
             $fileName = "C:/xampp/htdocs/primeira_entrega_2/storage/profilePictures/$tipo/$userID.$ext";
             if(!move_uploaded_file($img['profilePic']['tmp_name'], $fileName))
             {
-                echo 'erro no envio dos arquivos';
+                echo 'pedro';
             }
 
             return true;

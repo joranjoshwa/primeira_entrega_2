@@ -23,7 +23,7 @@
 <body> 
     <nav>
         <span><a href="../../index.php" id="index"><img src="../../img/agrofam.svg"></a></span>
-        <a href="profileAgro.php"><img src="../../storage/profilePictures/agro/<?php echo $_SESSION['user'][1]?>.jpg"></a>
+        <a href="profileAgro.php"><img src="../../storage/profilePictures/agro/<?php echo $_SESSION['user'][1]?>.jpg" alt='' ></a>
     </nav>
     <main>
         <div class="foto"><img src="../../storage/profilePictures/agro/<?php echo $_SESSION['user'][1]?>.jpg" alt=""></div>

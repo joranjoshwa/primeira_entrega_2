@@ -26,7 +26,7 @@
 <body>
     <nav>
         <span><a id='index' href="../../index.php"><img src="../../img/agrofam.svg"></a></span>
-        <a href="../../pages/profile/profileInsti.php"><img src="../../storage/profilePictures/insti/<?php echo $_SESSION['user'][1]?>.jpg"></a>
+        <a href="../../pages/profile/profileInsti.php"><img src="../../storage/profilePictures/insti/<?php echo $_SESSION['user'][1]?>.jpg" alt=''></a>
     </nav>
     <section>
         <h1>Seus Editais</h1>
