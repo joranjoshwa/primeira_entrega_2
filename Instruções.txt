@@ -1,0 +1,8 @@
+Instruções para executar o site.
+
+1- Instale o xampp, vá em htdocs (na pasta do xampp) e apague os conteúdos
+2- Clone o repositório na pasta htdocs
+3- Com a conecção do xampp ligada para o MySQL, use o MySQL Workbench para executar os arquivos: bd.sql e
+inserts.sql (nessa ordem).
+4- Acesse localhost no seu browser e navegue até a pasta que contém o index.php, a partir desse ponto
+já possível usar o site normalmente.
