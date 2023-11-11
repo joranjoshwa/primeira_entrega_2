@@ -20,7 +20,23 @@
 
     <title>AgroFam+</title>
 </head>
-<body> 
+<body>
+
+    <?php
+        if (isset($_SESSION["sucesso"])) {
+            echo '<div class="overlap">
+            <div class="sucesso errorMSG">
+                <span class="close" onclick="fechar()">
+                    <span></span>
+                    <span></span>
+                </span>
+                <p>'.$_SESSION["sucesso"].'</p>
+            </div>
+        </div>';
+        unset($_SESSION["sucesso"]);
+        }
+    ?>
+
     <nav>
         <span><a href="../../index.php" id="index"><img src="../../img/agrofam.svg"></a></span>
         <a href="profileAgro.php"><img src="../../storage/profilePictures/agro/<?php echo $_SESSION['user'][1]?>.jpg" alt='' ></a>
@@ -38,6 +54,8 @@
             <p id="sair"><img src="../../img/logout_black_24dp.svg" alt="sair"><span><a href="../../php/logout.php">Sair</a></span></p>
         </div>
     </main>
+
+    <script src="../../js/app.js"></script>
     
 </body>
 </html>

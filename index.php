@@ -72,12 +72,13 @@
 
             case 'ofertas':
                 citarOfertas($_POST['produto']);
-                header('Location: pages/telasAgricultor/telaOfertas.php');
+                $_SESSION["sucesso"] = "Oferta citada com sucesso!";
+                header('Location: pages/profile/profileAgro.php');
                 break;
 
             case 'editais':
                 criarEditais($_POST);
-                header('Location: pages/telasInstituicao/criarEditais.php');
+                header('Location: pages/telasInstituicao/visualizarEditais.php');
                 break;
 
             default:
